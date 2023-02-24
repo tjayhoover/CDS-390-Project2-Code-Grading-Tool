@@ -1,0 +1,29 @@
+The idea of separating out "untestable" code is an interesting one. I think we can explore the idea in project 2.
+
+There are a handful of relationship patterns that can serve as "boundaries" -- Strategy and Facade, as described here, but also Observer and others.
+ We'll dabble with some. I think the main point of chapter 24 is that there are different kinds of boundary, with different levels of separation, and
+ we should be willing to experiment with them. 
+ 
+ Exercises
+
+Working with your partner or alone is fine here. Start organizing your code and writing class skeletons. Here's an organization that I suggest you try (note: this is going to feel over-designed to you. That's to be expected. Our project is not really big enough to benefit from a careful architecture, but I hope you can close your eyes and imagine it becoming much bigger, and think about the consequences.)
+
+    A folder called src at the top level of your project. 
+        Inside of that folder, a collection of folders, one for each coherent collection of use cases. 
+            Inside of each of those folders, we find folders for
+                each use case
+                each adapter,
+                maybe one for any "glue code" you need in the outer details ring. 
+                A folder for request/response model types pertaining to these use cases
+        A folder for the entity types (that are presumably shared across all use cases)
+
+If you're programming in Java, these folders become java packages. In C++, the language doesn't care about the physical layout of your source.
+ Other languages have different rules and terminology for creating "modules." Read up.
+
+Create this directory structure in your shared repo and start populating the folders with class skeletons
+ (classes with function declarations and comments, but no code). 
+
+I am not trying to imply that this is the One True Organization -- but it's a place to start.
+ You can compare in your brain with, say, a folder structure that elevates layers to top-level folders instead. 
+
+You will also have to work a bit harder than usual to get your build system configured correctly.
