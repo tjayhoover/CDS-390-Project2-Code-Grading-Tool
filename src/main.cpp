@@ -9,7 +9,7 @@ int main(int, char**) {
     pythonGrader g = pythonGrader();
 
     // Test a correct
-    bool correct = g.grade_code("x = input()\nprint(x)", "Hello", "Shitbird\n\n\n\n");
+    bool correct = g.grade_code("x = input()\nprint(x)", "Hello", "Hello");
     if(correct) {
         cout << "It worked!" << endl;
     }
