@@ -4,3 +4,6 @@ CMakeSettings.json
 settings.json
 .vscode
 out
+lib
+bin
+googletest
