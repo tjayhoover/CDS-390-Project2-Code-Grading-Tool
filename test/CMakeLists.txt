@@ -8,7 +8,7 @@ add_executable(${PROJECT_NAME} grader_tests.cpp)
 find_package(GTest REQUIRED)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
-    gtest_main
+    ${GTEST_LIBRARIES}
     grader
 )
 
