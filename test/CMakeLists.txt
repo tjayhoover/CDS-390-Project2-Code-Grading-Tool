@@ -19,4 +19,3 @@ add_test(
 )
 
 include(GoogleTest)
-gtest_discover_tests(GraderTests)
