@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 #Tell compiler where to look for the interface headers
 include_directories(${PROJECT_SOURCE_DIR}/interfaces)
 
-#Link to subdirectory
+#Link to plugins subdirectory
 add_subdirectory(plugins/grader)
 
 #Entry point to our program
