@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 #Entry point to our program
 add_executable(BeetCode main.cpp)
 
+target_compile_options(BeetCode PRIVATE -pedantic)
+
 #Link some required libraries
 find_package(Boost COMPONENTS date_time chrono REQUIRED)
 if(Boost_FOUND)

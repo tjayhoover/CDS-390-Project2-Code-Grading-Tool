@@ -1,7 +1,5 @@
 #include "grader.hpp"
 
-#include <boost/algorithm/string.hpp>
-
 #include <string>
 #include <fstream>
 #include <filesystem>
@@ -42,12 +40,8 @@ bool pythonGrader::grade_code(std::string code, std::string input, std::string d
     buffer << out.rdbuf();
     string actual_output = buffer.str();
 
-    // Trim whitespace from both desired output and actual output to ensure consistency
-    boost::trim_right(actual_output);
-    boost::trim_right(desired_output);
-
     // Remove newline character that was added by the file write operation
-    //if(actual_output.back() == '\n') actual_output.pop_back();
+    if(actual_output.back() == '\n') actual_output.pop_back();
 
     return (actual_output == desired_output);
 }
