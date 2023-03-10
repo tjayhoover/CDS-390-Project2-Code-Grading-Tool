@@ -9,6 +9,7 @@ find_package(GTest REQUIRED)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
     ${GTEST_LIBRARIES}
+    GTest::gtest_main
     grader
 )
 

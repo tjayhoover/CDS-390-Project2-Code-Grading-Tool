@@ -14,9 +14,3 @@ TEST(GraderTest, CorrectGrade) {
     EXPECT_EQ(t, true);
     EXPECT_EQ(f, false); 
 }
-
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    int r = RUN_ALL_TESTS();
-    return 0;
-}
