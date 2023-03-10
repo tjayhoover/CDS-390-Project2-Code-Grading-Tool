@@ -5,10 +5,10 @@ enable_testing()
 
 add_executable(${PROJECT_NAME} grader_tests.cpp)
 
-find_package(GTest REQUIRED)
+find_package(GTest CONFIG REQUIRED)
 
 target_link_libraries(${PROJECT_NAME} PUBLIC 
-    ${GTEST_LIBRARIES}
+    GTest::gtest
     GTest::gtest_main
     grader
 )
