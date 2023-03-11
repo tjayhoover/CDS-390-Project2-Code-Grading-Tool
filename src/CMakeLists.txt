@@ -4,9 +4,9 @@ project(BeetCode VERSION 0.1.0)
 set(CMAKE_CXX_STANDARD 17)
 
 #Entry point to our program
-add_executable(BeetCode main.cpp)
+add_executable(${PROJECT_NAME} main.cpp)
 
-target_compile_options(BeetCode PRIVATE -pedantic)
+target_compile_options(${PROJECT_NAME} PRIVATE -pedantic)
 
 #Link some required libraries
 find_package(Boost COMPONENTS date_time chrono REQUIRED)

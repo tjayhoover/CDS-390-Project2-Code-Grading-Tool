@@ -13,9 +13,6 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
     grader
 )
 
-#Tell compiler where to look for the interface headers - I think this is very bad
-include_directories(/home/tjayhoover/project-2-beetcode-v0-2/src/interfaces)
-
 add_test(
     NAME ${PROJECT_NAME}
     COMMAND ${PROJECT_NAME}
