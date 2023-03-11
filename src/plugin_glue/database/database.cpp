@@ -21,6 +21,7 @@ vector<Submission> Database::get_submissions() {
 
 // However, the following are definitely required
 void Database::add_user(User& user) {
+    std::cout << "adding " << user.get_username() << std::endl;
     return;
 }
 

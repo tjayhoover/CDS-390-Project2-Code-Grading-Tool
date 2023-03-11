@@ -44,7 +44,6 @@ class User {
     std::string username;
     int password;
     int salt;
-    
 };
 
 #endif

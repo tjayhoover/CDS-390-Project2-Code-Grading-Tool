@@ -14,12 +14,15 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC python_grader)
 
+#Are these both required?
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/interfaces")
+#target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/entities")
 
 #Add subdirectories
 add_subdirectory(submit_assignment/submit_assignment)
 add_subdirectory(plugin_glue/grader)
 add_subdirectory(plugin_glue/database)
+add_subdirectory(entities)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

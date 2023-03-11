@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <fstream>
 
-#include "assignment.h"
+#include "assignment.hpp"
 
 Assignment::Assignment(const std::string& name, time_t deadline)
 : name(name), deadline(deadline) { 
