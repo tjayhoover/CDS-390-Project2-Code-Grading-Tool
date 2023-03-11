@@ -7,7 +7,7 @@
 
 // I think this can be reused as long as time_t is replaced with boost etc
 
-#include "submission.h"
+#include "submission.hpp"
 
 class Assignment {
     public:

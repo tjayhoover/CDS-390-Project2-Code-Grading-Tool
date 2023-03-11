@@ -2,7 +2,7 @@
 // 6 February 2023
 // BeetCode -- Submission Implementation
 
-#include "submission.h"
+#include "submission.hpp"
 
 Submission::Submission(const std::string& name, const std::string& program)
 : student_name(name), program(program) {

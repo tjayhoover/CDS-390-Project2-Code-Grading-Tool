@@ -1,8 +1,8 @@
 #include <string>
 #include <ctime> // this will be swapped with boost time same for saving etc
 
-#include "user.h"
-#include "../Hash/hash.h"
+#include "user.hpp"
+//#include "../Hash/hash.h"
 
 
 // Constructor for initializing variables for building users from database
@@ -37,7 +37,7 @@ void User::set_password(const std::string& new_password){
     DO NOT DO THIS, AGAIN THIS IS NOT SECURE.
     STD::HASH IS NOT SECURE FOR CRYPTOGRAPHIC PURPOSES
     */
-    password = Hash{}(salt,new_password);
+    //password = Hash{}(salt,new_password);
 }
 
 // Saves User info as string vector for saving in database
