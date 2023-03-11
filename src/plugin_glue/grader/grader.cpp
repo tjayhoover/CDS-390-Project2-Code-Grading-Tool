@@ -1,9 +1,12 @@
 #include "grader.hpp"
 
-grader::grade_code(pythonGrader pg) {
-    this.pg = pg;
+pythonGrader pg;
+
+Grader::Grader() {
+    pythonGrader pg;
+    this->pg = pg;
 }
 
-bool grader::grade_code(std::string code, std::string input, std::string output) {
-    return pg.grade_code(std::string code, std::string input, std::string output);
+bool Grader::grade_code(std::string code, std::string input, std::string output) {
+    return (this->pg).grade_code(code, input, output);
 }

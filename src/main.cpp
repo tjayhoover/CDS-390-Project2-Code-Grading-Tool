@@ -1,10 +1,10 @@
 #include <iostream>
 
 // Is this what will happen?
-#include "python_grader.hpp"
+#include "plugin_glue/grader/grader.hpp"
 
 using namespace std;
 
 int main(int, char**) {
-    std::cout << "Hello, beetcode world!\n";
+    cout << "Hello, beetcode world!\n";
 }

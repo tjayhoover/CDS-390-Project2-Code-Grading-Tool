@@ -1,5 +1,5 @@
-#ifndef GRADER_HPP
-#define GRADER_HPP
+#ifndef PYTHON_GRADER_HPP
+#define PYTHON_GRADER_HPP
 
 #include <string>
 

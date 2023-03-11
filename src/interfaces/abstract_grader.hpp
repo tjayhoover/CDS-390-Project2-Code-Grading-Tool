@@ -2,7 +2,7 @@
 #define ABSTRACT_GRADER_HPP
 
 #include <string>
-class grader {
+class AbstractGrader {
 
 public:
 
