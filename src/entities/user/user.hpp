@@ -1,8 +1,8 @@
 // Author: Brandon Bauer
 // Date: 10/2/2023
 
-#ifndef USER_H
-#define USER_H
+#ifndef USER_HPP
+#define USER_HPP
 
 #include <string>
 #include <vector>
