@@ -16,11 +16,6 @@ endif()
 
 target_link_libraries(${PROJECT_NAME} grader)
 
-#Tell compiler where to look for the interface headers - is this ok?
-include_directories(${PROJECT_SOURCE_DIR}/interfaces)
-
-add_subdirectory(plugins/grader)
-
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)

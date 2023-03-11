@@ -2,9 +2,10 @@
 #define GRADER_HPP
 
 #include "abstract_grader.hpp"
+
 #include <string>
 
-class pythonGrader: public grader::grader {
+class pythonGrader : public grader {
 
 public:
     // Constructor
