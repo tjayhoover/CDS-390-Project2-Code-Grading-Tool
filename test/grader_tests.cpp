@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "grader.hpp"
+#include "python_grader.hpp"
 
 // Demonstrate some basic assertions.
 TEST(GraderTest, CorrectGrade) {
