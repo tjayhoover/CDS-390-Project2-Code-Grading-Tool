@@ -9,14 +9,12 @@
 #include <vector>
 
 // Could add these include paths to cmake
-#include "./entities/user/user.hpp"
-#include "./entities/assignment/assignment.hpp"
-#include "./entities/submission/submission.hpp"
+#include "../entities/user/user.hpp"
+#include "../entities/assignment/assignment.hpp"
+#include "../entities/submission/submission.hpp"
 
 class AbstractDatabase {
 public:
-
-  virtual ~AbstractDatabase() = default;
 
   // I don't think any use case will every need in memory lists of 
   // all assignments, submissions, and users. Thus, I think

@@ -1,7 +1,5 @@
 #include "grader.hpp"
 
-pythonGrader pg;
-
 Grader::Grader() {
     pythonGrader pg;
     this->pg = pg;

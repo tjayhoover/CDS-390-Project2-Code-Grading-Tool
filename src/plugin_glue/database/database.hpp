@@ -5,20 +5,22 @@
 #include <string>
 #include <vector>
 
-class database: public abstract_database {
+#include <iostream>
+
+class Database: public AbstractDatabase {
 
 public:
-  std::vector<Assignment> get_assignments();
-  std::vector<User> get_users();
-  std::vector<Submission> get_submissions();
+  std::vector<Assignment> get_assignments() override;
+  std::vector<User> get_users() override;
+  std::vector<Submission> get_submissions() override;
   
-  void add_user(User& user);
-  void add_assignment(Assignment& assignment);
-  void add_submission(Submission& submission);
+  void add_user(User& user) override;
+  void add_assignment(Assignment& assignment) override;
+  void add_submission(Submission& submission) override;
 
-  void del_user(User& user);
-  void del_assignment(Assignment& assignment);
-  void del_submission(Submission& submission);
+  void del_user(User& user) override;
+  void del_assignment(Assignment& assignment) override;
+  void del_submission(Submission& submission) override;
 };
 
 #endif

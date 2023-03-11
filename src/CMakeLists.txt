@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 #Entry point to our program
 add_executable(${PROJECT_NAME} main.cpp)
 
-
 #Link some required libraries
 find_package(Boost COMPONENTS date_time chrono REQUIRED)
 if(Boost_FOUND)
@@ -20,6 +19,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/inter
 #Add subdirectories
 add_subdirectory(submit_assignment/submit_assignment)
 add_subdirectory(plugin_glue/grader)
+add_subdirectory(plugin_glue/database)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
