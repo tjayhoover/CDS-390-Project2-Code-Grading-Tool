@@ -32,7 +32,7 @@ bool pythonGrader::grade_code(std::string code, std::string input, std::string d
     in.close();
 
     // Use a system command to run the python code
-    system("python3 ./python_temp/source_code.py < ./python_temp/input.txt > ./python_temp/output.txt");
+    int s = system("python3 ./python_temp/source_code.py < ./python_temp/input.txt > ./python_temp/output.txt");
 
     // Read the program output back into a string
     ifstream out("./python_temp/output.txt");
