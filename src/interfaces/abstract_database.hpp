@@ -17,10 +17,14 @@ class AbstractDatabase {
 public:
 
   // I don't think any use case will every need in memory lists of 
-  // all assignments, submissions, and users. Thus, I think
-  // we need to reimagine our interface 
+  // all assignments, submissions, and users.
   // Database logic should be done in a lower level; the use case
   // shouldn't have to sort through stuff 
+
+  // I propose adding these:
+  // virtual Assignment get_assignment(some kind of ID. Either name or ID number) = 0;
+  // Virtual User get_user(some kind of ID. Either name or ID number) = 0;
+  // Virtual Submission get_submission(some kind of ID. Either name or ID number) = 0;
 
   virtual std::vector<Assignment> get_assignments() = 0;
   virtual std::vector<User> get_users() = 0;
@@ -29,12 +33,6 @@ public:
 
   // These, however, are required:
 
-  // Should these return booleans indicating the success or
-  // failure of the database operation?
-  // - pro: The use case ought to be aware of whether it succeeded or not
-  // - con: The use case doesn't need to worry about details like that
-  // but that is actually a pretty big bleeping detail. IO operations can fail,
-  // and that is relevant to the business logic
   virtual void add_user(User& user) = 0;
   virtual void add_assignment(Assignment& assignment) = 0;
   virtual void add_submission(Submission& submission) = 0;
