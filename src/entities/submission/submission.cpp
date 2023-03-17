@@ -46,6 +46,6 @@ int Submission::get_grade() {
   return grade;
 }
 
-boost::posix_time::ptime get_submission_time() {
+boost::posix_time::ptime Submission::get_submission_time() {
   return submission_time;
 }
