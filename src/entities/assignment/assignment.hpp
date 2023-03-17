@@ -52,11 +52,10 @@ class Assignment {
 
     std::string name;
     std::string description;
-
     boost::posix_time::ptime deadline;
     int max_grade;
     
-    // Contains a list of filepaths to submissions.
+    // Contains a list of submission IDs.
     std::vector<std::string> submissions;
 
     // Each pair in this vector contains two strings. The first string

@@ -93,17 +93,16 @@ boost::posix_time::ptime Assignment::get_deadline() {
   return deadline;
 }
 
-int Assignment::get_max_grade() {
+int Assignment::get_max_grade(){
   return max_grade;
 }
 
-// This needs to be updated to work with new implementation
 std::pair<std::string,Submission> Assignment::submit_work(const std::string& username, const std::string& program){
   Submission submission(username, program);
   submission.set_grade(grade_work(submission));
-  std::string path = "../DatabaseFiles/Submissions/" + name + "_" + username + "_" + std::to_string(size(submissions));
-  submissions.push_back(path);
-  return {path,submission};
+  std::string sub_ID = name + "_" + username + "_" + std::to_string(size(submissions));
+  submissions.push_back(sub_ID);
+  return {sub_ID,submission};
 }
 
 void Assignment::add_test_case(std::pair<std::string, std::string> test_case){
