@@ -5,7 +5,8 @@
 #ifndef ASSIGNMENT_HPP
 #define ASSIGNMENT_HPP
 
-// I think this can be reused as long as time_t is replaced with boost etc
+#include "boost/date_time/posix_time/posix_time.hpp"
+// https://www.boost.org/doc/libs/1_81_0/doc/html/date_time/posix_time.html#date_time.posix_time.ptime_class
 
 #include "../submission/submission.hpp"
 
@@ -15,7 +16,7 @@ class Assignment {
     Assignment() = delete;
     
     // Minimum viable set of parameters for a valid Assignment object.
-    Assignment(const std::string& name, time_t deadline);
+    Assignment(const std::string& name, boost::posix_time::ptime deadline);
     
     // All parameters available; used for loading Assignments from Databases.
     Assignment(const std::vector<std::string>& params);
@@ -38,12 +39,11 @@ class Assignment {
 
     void set_name(const std::string& name);
     void set_description(const std::string& description);
-    void set_deadline(time_t deadline);
+    void set_deadline(boost::posix_time::ptime deadline);
     
     std::string get_name();
     std::string get_description();
-    time_t get_deadline();
-    int get_max_grade();
+    boost::posix_time::ptime get_deadline();
     
     // Returns our list of filepaths to submissions.
     std::vector<std::string> get_submissions();
@@ -53,7 +53,7 @@ class Assignment {
     std::string name;
     std::string description;
 
-    time_t deadline;
+    boost::posix_time::ptime deadline;
     int max_grade;
     
     // Contains a list of filepaths to submissions.

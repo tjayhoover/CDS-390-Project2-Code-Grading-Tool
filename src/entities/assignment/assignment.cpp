@@ -5,10 +5,14 @@
 #include <stdlib.h>
 #include <fstream>
 
+#include "boost/date_time/posix_time/posix_time.hpp"
+// https://www.boost.org/doc/libs/1_81_0/doc/html/date_time/posix_time.html#date_time.posix_time.ptime_class
+
+
 #include "assignment.hpp"
 
-Assignment::Assignment(const std::string& name, time_t deadline)
-: name(name), deadline(deadline) { 
+Assignment::Assignment(const std::string& name,const std::string& deadline)
+: name(name), deadline(boost::posix_time::time_from_string(deadline)) { 
 
   description = "No description is available.";
   
@@ -18,7 +22,7 @@ Assignment::Assignment(const std::vector<std::string>& params) {
   
   name = params[0];
   description = params[1];
-  deadline = std::stoll(params[2]); // time_t == long long
+  deadline = boost::posix_time::time_from_string(params[2]);
   max_grade = std::stoi(params[3]);
   
   int n_submissions = std::stoi(params[4]);
@@ -45,7 +49,7 @@ std::vector<std::string> Assignment::save() {
   std::vector<std::string> data;
   data.push_back(name);
   data.push_back(description);
-  data.push_back(std::to_string(deadline));
+  data.push_back(boost::posix_time::to_simple_string(deadline));
   data.push_back(std::to_string(max_grade));
   
   // We have to store a list of submissions and a list of test cases. How
@@ -72,7 +76,7 @@ void Assignment::set_description(const std::string& new_description) {
   description = new_description;
 }
 
-void Assignment::set_deadline(time_t new_deadline) {
+void Assignment::set_deadline(boost::posix_time::ptime new_deadline) {
   deadline = new_deadline;
 }
 
@@ -85,7 +89,7 @@ std::string Assignment::get_description() {
   return description;
 }
 
-time_t Assignment::get_deadline() {
+boost::posix_time::ptime Assignment::get_deadline() {
   return deadline;
 }
 
@@ -93,32 +97,7 @@ int Assignment::get_max_grade() {
   return max_grade;
 }
 
-int Assignment::grade_work(const Submission& submission){
-  std::string program = submission.get_program();
-
-  int correct_cases {0};
-
-  for(auto& case : test_cases){
-    std::string input  = case.first;
-    std::string output = case.second;
-
-    std::string command_1 = " cat " + input + " | python " + program + " >> ../DatabaseFiles/Grading/program_output.txt";
-    std::string command_2 = "diff -q ../DatabaseFiles/Grading/program_output.txt " + output + " >> ../DatabaseFiles/Grading/results.txt";
-
-    system(command_1.c_str());
-    system(command_2.c_str());
-
-    ifstream results {"../DatabaseFiles/Grading/results.txt"};
-    if(results.peek() == std::ifstream::traits_type::eof();) ++correct_cases;
-
-    system("rm ../DatabaseFiles/Grading/results.txt");
-    system("rm ../DatabaseFiles/Grading/program_output.txt");
-    }
-
-
-    return correct_cases;
-}
-
+// This needs to be updated to work with new implementation
 std::pair<std::string,Submission> Assignment::submit_work(const std::string& username, const std::string& program){
   Submission submission(username, program);
   submission.set_grade(grade_work(submission));

@@ -1,2 +1,4 @@
-Place client and project development notes here:
+TODO:
 
+Fix submissions and similar
+finish implemnting boost posix_time changes

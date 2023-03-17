@@ -8,8 +8,6 @@ Submission contains the Student's name, a timestamp, the text of the program
 they submitted, and the number of test cases that program passed.
 */
 
-// Again I think this can be reused but with time_t swaped with boost time etc
-
 #ifndef SUBMISSION_H
 #define SUBMISSION_H
 
