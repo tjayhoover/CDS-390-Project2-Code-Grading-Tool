@@ -17,13 +17,15 @@ they submitted, and the number of test cases that program passed.
 #include <chrono>
 #include <vector>
 
+#include "boost/date_time/posix_time/posix_time.hpp"
+
 class Submission {
     public:
 
     Submission() = delete;
     
-    // Minimal constructor for a viable Submission object.
-    Submission(const std::string& name, const std::string& program);
+    // Constructor for a viable Submission object.
+    Submission(const std::string& student_name, const std::string& program, boost::posix_time::ptime time);
     
     // Constructor containing all parameters for use by Databases.
     Submission(const std::vector<std::string>& params);
@@ -36,8 +38,8 @@ class Submission {
     
     std::string get_name();
     std::string get_program();
-    int         get_grade();
-    time_t      get_submission_time();
+    int get_grade();
+    boost::posix_time::ptime get_submission_time();
    
     private:
     
@@ -45,10 +47,10 @@ class Submission {
     std::string program;
     
     // NOTE: This value, in combination with max_grade from an Assignment,
-    // enables the displaying of either a radio (15/20) or a percent(75%).
+    // enables the displaying of either a ratio (15/20) or a percent(75%).
     int grade;
 
-    time_t submission_time;
+    boost::posix_time::ptime submission_time;
     
 };
 
