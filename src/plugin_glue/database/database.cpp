@@ -14,16 +14,16 @@ User Database::get_user(std::string username) {
     return u;
 }
 
-// Assignment Database::get_assignment(std::string name) {
-//     time_t due_date = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-//     Assignment a(name);
-//     return a;
-// }
+Assignment Database::get_assignment(std::string name) {
+    time_t due_date = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+    Assignment a(name, boost::posix_time::second_clock::local_time());
+    return a;
+}
 
-// vector<Assignment> Database::get_assignments() {
-//     vector<Assignment> v;
-//     return v;
-// }
+vector<Assignment> Database::get_assignments() {
+    vector<Assignment> v;
+    return v;
+}
 
 vector<User> Database::get_users() {
     vector<User> u;
