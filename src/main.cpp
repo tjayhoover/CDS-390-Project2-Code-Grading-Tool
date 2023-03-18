@@ -15,17 +15,17 @@ using namespace std;
 
 int main(int, char**) {
     Grader* g = new Grader();
-    Database* db = new Database();
+    //Database* db = new Database();
 
     //boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
 
-    SubmissionUseCase* sb = new SubmissionUseCase(db, g);
+    SubmissionUseCase* sb = new SubmissionUseCase(g);
     incoming_submission sub;
     sub.assignment_name = "Test Assignment";
     sub.program = "print(\"Hello World\")";
     sub.student_name = "Tyler";
-    sub.submission_date = boost::posix_time::second_clock::local_time();
-    sb->submit_assignment(sub);
+    sub.submission_time = boost::posix_time::second_clock::local_time();
+    //sb->submit_assignment(sub);
 
     string response;
     while(true) {

@@ -12,7 +12,7 @@ Submission::Submission(const std::vector<std::string>& params) {
   student_name = params[1];
   program = params[2];
   grade = std::stoi(params[3]);
-  submission_time = boost::posix_time::from_iso_string(params[4]);  
+  submission_time = boost::posix_time::time_from_string(params[4]);  
 }
 
 std::vector<std::string> Submission::save() {
@@ -22,7 +22,7 @@ std::vector<std::string> Submission::save() {
   data.push_back(student_name);
   data.push_back(program);
   data.push_back(std::to_string(grade));
-  data.push_back(boost::posix_time::to_iso_string(submission_time));
+  data.push_back(boost::posix_time::to_simple_string(submission_time));
   
   return data;
   

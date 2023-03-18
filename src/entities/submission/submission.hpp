@@ -8,8 +8,6 @@ Submission contains the Student's name, a timestamp, the text of the program
 they submitted, and the number of test cases that program passed.
 */
 
-// Again I think this can be reused but with time_t swaped with boost time etc
-
 #ifndef SUBMISSION_H
 #define SUBMISSION_H
 
@@ -18,6 +16,7 @@ they submitted, and the number of test cases that program passed.
 #include <vector>
 
 #include "boost/date_time/posix_time/posix_time.hpp"
+// https://www.boost.org/doc/libs/1_81_0/doc/html/date_time/posix_time.html#date_time.posix_time.ptime_class
 
 class Submission {
     public:
@@ -51,9 +50,6 @@ class Submission {
     int grade;
 
     boost::posix_time::ptime submission_time;
-    
 };
-
-
 
 #endif

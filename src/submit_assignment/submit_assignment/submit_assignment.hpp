@@ -9,7 +9,8 @@
 class SubmissionUseCase {
 
 public:
-    SubmissionUseCase(AbstractDatabase*, AbstractGrader*);
+    //SubmissionUseCase(AbstractDatabase*, AbstractGrader*);
+    SubmissionUseCase(AbstractGrader*);
 
     double submit_assignment(incoming_submission sub);
 

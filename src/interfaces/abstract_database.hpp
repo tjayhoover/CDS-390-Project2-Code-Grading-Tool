@@ -16,15 +16,17 @@
 class AbstractDatabase {
 public:
 
+  virtual ~AbstractDatabase() = default;
+
   // I don't think any use case will every need in memory lists of 
   // all assignments, submissions, and users.
   // Database logic should be done in a lower level; the use case
   // shouldn't have to sort through stuff 
 
   // I propose adding these:
-  // virtual Assignment get_assignment(some kind of ID. Either name or ID number) = 0;
-  // Virtual User get_user(some kind of ID. Either name or ID number) = 0;
-  // Virtual Submission get_submission(some kind of ID. Either name or ID number) = 0;
+  virtual Assignment get_assignment(std::string name) = 0;
+  virtual User get_user(std::string username) = 0;
+  //virtual Submission get_submission(std::) = 0;
 
   virtual std::vector<Assignment> get_assignments() = 0;
   virtual std::vector<User> get_users() = 0;

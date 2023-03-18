@@ -6,6 +6,8 @@ class AbstractGrader {
 
 public:
 
+    virtual ~AbstractGrader() = default;
+
     // Runs the code contained in the "code" string using the input from the "input" string.
     // If the program output matches the text in the "output" string, it returns "true."
     // In any other case, it will return "false."

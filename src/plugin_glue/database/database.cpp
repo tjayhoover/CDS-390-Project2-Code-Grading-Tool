@@ -1,13 +1,29 @@
 #include "database.hpp"
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-vector<Assignment> Database::get_assignments() {
-    vector<Assignment> v;
-    return v;
+Database::Database() {
+    cout << "Database - implemented" << endl;
 }
+
+User Database::get_user(std::string username) {
+    User u(PermissionLevel::Student, "test_user");
+    return u;
+}
+
+// Assignment Database::get_assignment(std::string name) {
+//     time_t due_date = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+//     Assignment a(name);
+//     return a;
+// }
+
+// vector<Assignment> Database::get_assignments() {
+//     vector<Assignment> v;
+//     return v;
+// }
 
 vector<User> Database::get_users() {
     vector<User> u;
@@ -19,7 +35,6 @@ vector<Submission> Database::get_submissions() {
     return s;
 }
 
-// However, the following are definitely required
 void Database::add_user(User& user) {
     std::cout << "adding " << user.get_username() << std::endl;
     return;
