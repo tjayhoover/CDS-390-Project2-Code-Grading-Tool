@@ -1,20 +1,25 @@
-// Brandon Bauer and Tyler Hoover
-// 14 March 2023
-// BeetCode -- AbstractDatabase Header
+// Brandon Bauer
+// 17 March 2023
+// BeetCode -- Database plugin
 
-#ifndef ABSTRACT_DATABASE_H
-#define ABSTRACT_DATABASE_H
+#ifndef DB_ADAPTER_H
+#define DB_ADAPTER_H
 
 #include <string>
 #include <vector>
 
-// Could add these include paths to cmake
-#include "../entities/user/user.hpp"
-#include "../entities/assignment/assignment.hpp"
-#include "../entities/submission/submission.hpp"
+#include "../database.hpp"
 
-class AbstractDatabase {
-public:
+#include "../../../src/entities/user/user.hpp"
+#include "../../../src/entities/assignment/assignment.hpp"
+#include "../../../src/entities/submission/submission.hpp"
+
+class DB_adapter {
+    
+  public:
+
+  DB_adapter() = default;
+  ~DB_adapter() = default;
 
   // Adds to database
   virtual std::string add_user(User& user) = 0;
@@ -35,6 +40,14 @@ public:
   virtual Assignment get_assignment(const std::string& ID) = 0;
   virtual User get_user(const std::string& ID) = 0;
   virtual Submission get_submission(const std::string& ID) = 0;
+
+  private:
+
+  // create y DB object and use it
+  // "cache"
+  // etc
+
+
 
 };
 
