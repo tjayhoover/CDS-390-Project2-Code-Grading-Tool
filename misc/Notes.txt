@@ -1,4 +1,5 @@
 TODO:
 
-Fix submissions and similar
-finish implemnting boost posix_time changes
+Assignment function submit work
+database adapter
+bauer database
