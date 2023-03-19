@@ -13,8 +13,6 @@ public:
 
   Database();
 
-  //~Database() {}
-
   std::vector<Assignment> get_assignments() override;
   std::vector<User> get_users() override;
   std::vector<Submission> get_submissions() override;

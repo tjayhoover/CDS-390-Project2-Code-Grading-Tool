@@ -14,5 +14,4 @@ public:
     virtual bool grade_code(std::string code, std::string input, std::string output) = 0;
 };
 
-
 #endif

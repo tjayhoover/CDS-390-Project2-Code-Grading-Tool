@@ -23,6 +23,7 @@ add_subdirectory(entities)
 add_subdirectory(submit_assignment/submit_assignment)
 add_subdirectory(plugin_glue/grader)
 add_subdirectory(plugin_glue/database)
+add_subdirectory(plugin_glue/authenticator)
 
 
 #The following two lines print all the source files compiled by the target

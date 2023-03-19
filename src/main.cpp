@@ -4,6 +4,7 @@
 // Is this what will happen?
 #include "plugin_glue/grader/grader.hpp"
 #include "plugin_glue/database/database.hpp"
+#include "plugin_glue/authenticator/authenticator.hpp"
 
 #include "submit_assignment/submit_assignment/submit_assignment.hpp"
 #include "submit_assignment/request_response_models/submission_models.hpp"
@@ -15,11 +16,12 @@ using namespace std;
 
 int main(int, char**) {
     Grader* g = new Grader();
-    //Database* db = new Database();
+    Database* db = new Database();
+    Authenticator* auth = new Authenticator();
 
     //boost::posix_time::ptime now = boost::posix_time::second_clock::local_time();
 
-    SubmissionUseCase* sb = new SubmissionUseCase(g);
+    SubmissionUseCase* sb = new SubmissionUseCase(db,  g);
     incoming_submission sub;
     sub.assignment_name = "Test Assignment";
     sub.program = "print(\"Hello World\")";
