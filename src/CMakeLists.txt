@@ -20,13 +20,16 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/inter
 
 #Add subdirectories
 add_subdirectory(entities)
-add_subdirectory(submit_assignment/interactors)
+
+
+# Add the library adapters
 add_subdirectory(plugin_glue/grader)
 add_subdirectory(plugin_glue/database)
 add_subdirectory(plugin_glue/authenticator)
-add_subdirectory(submit_assignment/controllers)
-add_subdirectory(submit_assignment/views)
-add_subdirectory(submit_assignment/presenters)
+
+# Add the use case groups
+add_subdirectory(submit_assignment)
+add_subdirectory(log_in_out)
 
 
 #The following two lines print all the source files compiled by the target

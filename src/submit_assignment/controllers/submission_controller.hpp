@@ -13,5 +13,4 @@ public:
     void start_submission(SubmissionUseCase* suc);
 };
 
-
 #endif
