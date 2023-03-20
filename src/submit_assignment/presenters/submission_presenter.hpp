@@ -3,16 +3,24 @@
 
 #include "../interactors/presenter_interface.hpp"
 #include "view_interface.hpp"
+#include <memory>
+
+#include <iostream>
 
 class SubmissionPresenter: public PresenterInterface {
 
 public:
-    SubmissionPresenter(ViewInterface*);
+    //SubmissionPresenter();
 
     void presentResult(return_data data) override;
 
+    template<class V>
+    void setView() {
+        view = std::make_unique<V>();
+    }
+
 private:
-    ViewInterface* view;
+    std::unique_ptr<ViewInterface> view;
 };
 
 #endif

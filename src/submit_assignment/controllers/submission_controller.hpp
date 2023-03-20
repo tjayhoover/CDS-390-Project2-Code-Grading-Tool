@@ -7,7 +7,11 @@
 #include <string>
 #include <iostream>
 
-void start_submission(SubmissionUseCase* suc);
+class SubmissionController {
+
+public:
+    void start_submission(SubmissionUseCase* suc);
+};
 
 
 #endif

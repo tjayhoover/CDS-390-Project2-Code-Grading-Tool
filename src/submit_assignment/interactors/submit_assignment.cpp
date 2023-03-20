@@ -2,12 +2,8 @@
 
 #include <iostream>
 
-
-SubmissionUseCase::SubmissionUseCase(AbstractDatabase* db_ptr, AbstractGrader* grd_ptr, PresenterInterface* pst_ptr) {
-    this->grader = grd_ptr;
-    this->storage = db_ptr;
-    this->presenter = pst_ptr;
-}
+SubmissionUseCase::SubmissionUseCase(AbstractDatabase* d, AbstractGrader* g, std::unique_ptr<PresenterInterface> p)
+ : presenter(std::move(p)), storage(d), grader(g) {}
 
 double SubmissionUseCase::submit_assignment(incoming_submission sub) {
 

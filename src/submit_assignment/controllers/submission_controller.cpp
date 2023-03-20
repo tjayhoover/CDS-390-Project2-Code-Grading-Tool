@@ -12,7 +12,7 @@ using namespace std;
 // This is the controller. It takes the input, assembles it into a nice
 // package for the use case (interactor) and hands it over, along with control.
 
-void start_submission(SubmissionUseCase* suc) {
+void SubmissionController::start_submission(SubmissionUseCase* suc) {
     // Request data from the user
     cout << "Enter the full path of the file containing your code:" << endl;
     string path;
@@ -21,16 +21,16 @@ void start_submission(SubmissionUseCase* suc) {
     cin >> path;
 
     // Read the source code into a string
-    ifstream src(path);
-    stringstream buffer;
-    buffer << src.rdbuf();
-    string source_code = buffer.str();
-    src.close();
+    // ifstream src(path);
+    // stringstream buffer;
+    // buffer << src.rdbuf();
+    // string source_code = buffer.str();
+    // src.close();
 
     // Assemble the data in a format the interactor can use, agnostic of any UI details
     incoming_submission data;
     data.assignment_name = "Name";
-    data.program = source_code;
+    data.program = "python code";
     data.student_name = "Student Name";
     data.submission_time = boost::posix_time::second_clock::local_time();
 

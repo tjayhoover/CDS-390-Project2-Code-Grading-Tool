@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <memory>
 
 // Include the classes which "glue" the external dependencies
 #include "plugin_glue/grader/grader.hpp"
@@ -17,49 +18,25 @@ using namespace std;
 
 int main(int, char**) {
 
-    // Initialize the dependencies
-    Grader* g = new Grader();
-    Database* db = new Database();
-    Authenticator* auth = new Authenticator();
+    // Create the database, grader, and authenticator
+    unique_ptr<Grader> g = make_unique<Grader>();
+    unique_ptr<Database> db = make_unique<Database>();
+    unique_ptr<Authenticator> auth = make_unique<Authenticator>();
 
     // Initialize the use cases
-    SubmissionView* view = new SubmissionView();
-    SubmissionPresenter* p = new SubmissionPresenter(view);
-    SubmissionUseCase* sb = new SubmissionUseCase(db, g, p);
+
+    // Login Use Case
+    
+
+    //Submission Use case
+    unique_ptr<SubmissionPresenter> presenter = make_unique<SubmissionPresenter>();
+    presenter->setView<SubmissionView>();
+    unique_ptr<SubmissionUseCase> submission_use_case = make_unique<SubmissionUseCase>(db.get(), g.get(), std::move(presenter));
+    SubmissionController sub_controller;
 
     cout << "Welcome to Beetcode." << endl;
     // Start the submission use case
-    start_submission(sb);
+    sub_controller.start_submission(submission_use_case.get());
 
     cout << "Exiting Program" << endl;
-    
-    // while(true) {
-    //     cout << "Welcome to Beetcode." << endl;
-
-    //     cout << "Would you like to log in? (Y/N)" << endl;
-    //     string response;
-    //     cin >> response;
-
-    //     if(tolower(response[0]) == 'y') {
-    //         // start the login use case
-    //     }
-    //     else {
-    //         cout << "Exiting Program" << endl;
-    //         // Delete everything
-    //         break;
-    //     }
-
-
-        // cout << "Type in your username: " << endl;
-        // string username;
-        // cin >> username;
-        // cout << "Type in your password: " << endl;
-        // string password;
-        // cin >> password;
-        // log_in_controller.log_in()
-        
-        // Log in
-
-        // Depending on user, do other stuff
-    //}
 }
