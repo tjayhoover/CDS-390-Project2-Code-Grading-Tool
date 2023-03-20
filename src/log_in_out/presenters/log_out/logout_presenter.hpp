@@ -1,7 +1,7 @@
 #ifndef LOGOUT_PRESENTER_HPP
 #define LOGOUT_PRESENTER_HPP
 
-#include "../interactors/log_out/presenter_interface.hpp"
+#include "../../interactors/log_out/presenter_interface.hpp"
 #include "view_interface.hpp"
 #include "../../request_response_models/logout_models.hpp"
 #include <memory>

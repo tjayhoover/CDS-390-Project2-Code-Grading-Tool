@@ -6,7 +6,7 @@
 class PresenterInterface {
 
 public:
-    virtual void presentResult(login_request data) = 0;
+    virtual void presentResult(login_response data) = 0;
 };
 
 #endif
