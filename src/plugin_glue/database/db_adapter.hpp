@@ -41,6 +41,11 @@ class DB_adapter {
   User get_user(const std::string& ID);
   Submission get_submission(const std::string& ID);
 
+  // Gets all names for from database
+  std::vector<std::string> get_assignment_names();
+  std::vector<std::string> get_user_names();
+  std::vector<std::string> get_submission_names();
+
   private:
 
   // create y DB object and use it
