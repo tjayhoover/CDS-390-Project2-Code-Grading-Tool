@@ -1,9 +1,9 @@
-#include "view.hpp"
+#include "submission_view.hpp"
 
 #include <iostream>
 
 using namespace std;
 
-void View::display(ViewModel data) {
+void SubmissionView::display(ViewModel data) {
     cout << data.output << endl;
 }

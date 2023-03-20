@@ -7,7 +7,7 @@
 #include "plugin_glue/authenticator/authenticator.hpp"
 
 #include "submit_assignment/interactors/submit_assignment.hpp"
-#include "submit_assignment/views/view.hpp"
+#include "submit_assignment/views/submission_view.hpp"
 #include "submit_assignment/request_response_models/submission_models.hpp"
 #include "submit_assignment/controllers/submission_controller.hpp"
 #include "submit_assignment/presenters/submission_presenter.hpp"
@@ -25,8 +25,8 @@ int main(int, char**) {
     Authenticator* auth = new Authenticator();
 
     // Initialize the use cases
-    View* view = new View();
-    Presenter* p = new Presenter(view);
+    SubmissionView* view = new SubmissionView();
+    SubmissionPresenter* p = new SubmissionPresenter(view);
     SubmissionUseCase* sb = new SubmissionUseCase(db, g, p);
 
     cout << "Welcome to Beetcode." << endl;

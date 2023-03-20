@@ -4,10 +4,10 @@
 #include "../interactors/presenter_interface.hpp"
 #include "view_interface.hpp"
 
-class Presenter: public PresenterInterface {
+class SubmissionPresenter: public PresenterInterface {
 
 public:
-    Presenter(ViewInterface*);
+    SubmissionPresenter(ViewInterface*);
 
     void presentResult(return_data data) override;
 

@@ -1,13 +1,13 @@
 #include "submission_presenter.hpp"
 #include "view_model.hpp"
 
-Presenter::Presenter(ViewInterface* view_ptr) {
+SubmissionPresenter::SubmissionPresenter(ViewInterface* view_ptr) {
     this->view = view_ptr;
 }
 
 // This is the presenter. It recieves data from the interactor
 // puts it in the view model, and hands it to the view.
-void Presenter::presentResult(return_data data) {
+void SubmissionPresenter::presentResult(return_data data) {
 
     // Put the data in the view model
     ViewModel vm;
