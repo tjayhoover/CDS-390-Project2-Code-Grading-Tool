@@ -25,6 +25,8 @@ add_subdirectory(plugin_glue/grader)
 add_subdirectory(plugin_glue/database)
 add_subdirectory(plugin_glue/authenticator)
 add_subdirectory(submit_assignment/controllers)
+add_subdirectory(submit_assignment/views)
+add_subdirectory(submit_assignment/presenters)
 
 
 #The following two lines print all the source files compiled by the target
