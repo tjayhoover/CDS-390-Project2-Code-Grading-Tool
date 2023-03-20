@@ -11,6 +11,8 @@ struct incoming_submission {
     boost::posix_time::ptime submission_time;
 };
 
-
+struct return_data {
+    int grade;
+};
 
 #endif
