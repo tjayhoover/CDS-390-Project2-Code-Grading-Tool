@@ -1,0 +1,5 @@
+#ifndef DELETE_ASSIGNMENT_VIEW_HPP
+#define DELETE_ASSIGNMENT_VIEW_HPP
+
+
+#endif
