@@ -20,6 +20,9 @@ class bauer_DB{
     private:
 
     std::string ID_generation();
+
+    // create default config
+    void create_defaultconfig();
     
     // stores database parameters from config
     // files_loc

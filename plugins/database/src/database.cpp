@@ -47,6 +47,9 @@ bauer_DB::bauer_DB(const std::string& cfg_path = "../_database/cfg/default.cfg")
 
 }
 
+void Database::create_defaultconfig(){
+  
+}
 
 vector<string> Database::read_data(const string& ID) { 
   

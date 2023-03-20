@@ -37,9 +37,9 @@ public:
   virtual Submission get_submission(const std::string& ID) = 0;
 
     // Gets all names for from database
-  std::vector<std::string> get_assignment_names() = 0;
-  std::vector<std::string> get_user_names() = 0 ;
-  std::vector<std::string> get_submission_names() = 0;
+  virtual std::vector<std::string> get_assignment_names() = 0;
+  virtual std::vector<std::string> get_user_names() = 0 ;
+  virtual std::vector<std::string> get_submission_names() = 0;
 
 };
 
