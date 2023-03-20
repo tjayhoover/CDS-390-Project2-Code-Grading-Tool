@@ -11,7 +11,7 @@ class bauer_DB{
     ~bauer_DB() = default;
 
     vector<string> Database::read_data(const string& ID);
-    std::string Database::write_data(const vector<string>& data);
+    int Database::write_data(const vector<string>& data);
 
     // Maybe return type as bool
     void Database::delete_data(const string& ID);
@@ -19,16 +19,16 @@ class bauer_DB{
 
     private:
 
-    std::string ID_generation();
+    int ID_generation();
 
     // create default config
-    void create_defaultconfig();
+    bool create_defaultconfig();
     
     // stores database parameters from config
     // files_loc
     // ID_to_path_loc
     std::unorderd_map<std::string,std::string> params {};
-    std::unorderd_map<std::string,std::string> ID_to_path {};
+    std::unorderd_map<int,std::string> ID_to_path {};
 
 };
 
