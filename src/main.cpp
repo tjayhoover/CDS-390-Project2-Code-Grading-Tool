@@ -27,7 +27,6 @@ int main(int, char**) {
 
     // Login Use Case
     
-
     //Submission Use case
     unique_ptr<SubmissionPresenter> presenter = make_unique<SubmissionPresenter>();
     presenter->setView<SubmissionView>();
