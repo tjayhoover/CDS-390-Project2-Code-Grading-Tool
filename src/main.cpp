@@ -1,19 +1,17 @@
 #include <iostream>
 #include <string>
 
-// Is this what will happen?
+// Include the classes which "glue" the external dependencies
 #include "plugin_glue/grader/grader.hpp"
 #include "plugin_glue/database/database.hpp"
 #include "plugin_glue/authenticator/authenticator.hpp"
 
+// Include the relevant bits for the submission use case
 #include "submit_assignment/interactors/submit_assignment.hpp"
 #include "submit_assignment/views/submission_view.hpp"
 #include "submit_assignment/request_response_models/submission_models.hpp"
 #include "submit_assignment/controllers/submission_controller.hpp"
 #include "submit_assignment/presenters/submission_presenter.hpp"
-
-#include "boost/date_time/gregorian/gregorian.hpp"
-#include "boost/date_time/posix_time/posix_time.hpp"
 
 using namespace std;
 
