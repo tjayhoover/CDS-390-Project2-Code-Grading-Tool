@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-class LogInPresenter: public PresenterInterface {
+class LoginPresenter: public LoginPresenterInterface {
 
 public:
     void presentResult(login_response data) override;

@@ -2,10 +2,10 @@
 
 #include <iostream>
 
-SubmissionUseCase::SubmissionUseCase(AbstractDatabase* d, AbstractGrader* g, std::unique_ptr<PresenterInterface> p)
- : presenter(std::move(p)), storage(d), grader(g) {}
+SubmissionInteractor::SubmissionInteractor(AbstractDatabase* d, AbstractGrader* g, PresenterInterface* p)
+ : presenter(p), storage(d), grader(g) {}
 
-double SubmissionUseCase::submit_assignment(incoming_submission sub) {
+double SubmissionInteractor::submit_assignment(incoming_submission sub) {
 
     // Get the assigment corresponding to this submission:
    // Assignment assignment = storage->get_assignment(sub.assignment_name);

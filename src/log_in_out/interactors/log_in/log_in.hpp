@@ -1,19 +1,22 @@
 #ifndef LOG_IN_HPP
 #define LOG_IN_HPP
 
-#include "src/interfaces/abstract_authenticator.hpp"
-#include "src/interfaces/abstract_database.hpp"
+#include "abstract_authenticator.hpp"
+#include "abstract_database.hpp"
 #include "presenter_interface.hpp"
 
-
-class LogInUseCase {
+class LoginInteractor {
 
 public:
-    
+    LoginInteractor(AbstractDatabase*, AbstractAuthenticator*, LoginPresenterInterface*);
 
 private:
+    // Interface to database
     AbstractDatabase* storage;
-    std::unique_ptr<PresenterInterface> presenter;
+    // Interface to presenter
+    LoginPresenterInterface* presenter;
+    // Interface to authentication service
+    AbstractAuthenticator* authenticator;
 };
 
 #endif

@@ -7,22 +7,17 @@
 #include "abstract_database.hpp"
 #include <memory>
 
-class SubmissionUseCase {
+class SubmissionInteractor {
 
 public:
-    SubmissionUseCase(AbstractDatabase* d, AbstractGrader* g, std::unique_ptr<PresenterInterface> p);
+    SubmissionInteractor(AbstractDatabase* d, AbstractGrader* g, PresenterInterface* p);
 
     double submit_assignment(incoming_submission sub);
-
-    // template <class P>
-    // void setPresenter() {
-    //     presenter = T();
-    // }
 
 private:
     AbstractGrader* grader;
     AbstractDatabase* storage;
-    std::unique_ptr<PresenterInterface> presenter;
+    PresenterInterface* presenter;
 };
 
 #endif

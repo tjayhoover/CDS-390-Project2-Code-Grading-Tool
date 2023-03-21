@@ -10,7 +10,11 @@
 class SubmissionController {
 
 public:
-    void start_submission(SubmissionUseCase* suc);
+    SubmissionController(SubmissionInteractor);
+    void start_submission();
+
+private:
+    SubmissionInteractor submission_interactor;
 };
 
 #endif

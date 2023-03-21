@@ -14,6 +14,15 @@
 #include "submit_assignment/controllers/submission_controller.hpp"
 #include "submit_assignment/presenters/submission_presenter.hpp"
 
+// Include the relevant bits for the login/logout use case
+#include "log_in_out/controllers/log_in_out_controller.hpp"
+#include "log_in_out/interactors/log_in/log_in.hpp"
+#include "log_in_out/interactors/log_out/log_out.hpp"
+#include "log_in_out/presenters/log_in/login_presenter.hpp"
+#include "log_in_out/presenters/log_out/logout_presenter.hpp"
+#include "log_in_out/views/log_in/login_view.hpp"
+#include "log_in_out/views/log_out/logout_view.hpp"
+
 using namespace std;
 
 int main(int, char**) {
@@ -26,16 +35,27 @@ int main(int, char**) {
     // Initialize the use cases
 
     // Login Use Case
+
+    // Instantiate everything to do with the login/logout use cases
+    unique_ptr<LoginPresenter> login_presenter = make_unique<LoginPresenter>();
+    unique_ptr<LogoutPresenter> logout_presenter = make_unique<LogoutPresenter>();
+    login_presenter->setView<LoginView>();
+    logout_presenter->setView<LogoutView>();
+    LoginInteractor login_interactor = LoginInteractor(db.get(), auth.get(), login_presenter.get());
+    LogoutInteractor logout_interactor = LogoutInteractor(logout_presenter.get());
+    LogInOutController log_in_out_controller = LogInOutController(login_interactor, logout_interactor);
     
-    //Submission Use case
-    unique_ptr<SubmissionPresenter> presenter = make_unique<SubmissionPresenter>();
-    presenter->setView<SubmissionView>();
-    unique_ptr<SubmissionUseCase> submission_use_case = make_unique<SubmissionUseCase>(db.get(), g.get(), std::move(presenter));
-    SubmissionController sub_controller;
+    // Instantiate everything to do with the submission use case
+    unique_ptr<SubmissionPresenter> sub_presenter = make_unique<SubmissionPresenter>();
+    sub_presenter->setView<SubmissionView>();
+    SubmissionInteractor sub_interactor = SubmissionInteractor(db.get(), g.get(), sub_presenter.get());
+    SubmissionController sub_controller(sub_interactor);
+
+    
 
     cout << "Welcome to Beetcode." << endl;
     // Start the submission use case
-    sub_controller.start_submission(submission_use_case.get());
+    sub_controller.start_submission();
 
     cout << "Exiting Program" << endl;
 }

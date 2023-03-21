@@ -12,7 +12,10 @@ using namespace std;
 // This is the controller. It takes the input, assembles it into a nice
 // package for the use case (interactor) and hands it over, along with control.
 
-void SubmissionController::start_submission(SubmissionUseCase* suc) {
+SubmissionController::SubmissionController(SubmissionInteractor s) :
+    submission_interactor(s) {}
+
+void SubmissionController::start_submission() {
     // Request data from the user
     cout << "Enter the full path of the file containing your code:" << endl;
     string path;
@@ -37,5 +40,5 @@ void SubmissionController::start_submission(SubmissionUseCase* suc) {
     // Give the data to the interactor (use case):
     // This should be the final act of the controller, right?
     // Passing control to the interactor (Use Case)?
-    suc->submit_assignment(data);
+    submission_interactor.submit_assignment(data);
 }
