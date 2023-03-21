@@ -31,6 +31,9 @@ add_subdirectory(plugin_glue/authenticator)
 add_subdirectory(submit_assignment)
 add_subdirectory(log_in_out)
 
+# Add the user interface
+add_subdirectory(console_interface)
+
 
 #The following two lines print all the source files compiled by the target
 #get_target_property(v BeetCode SOURCES)

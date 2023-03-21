@@ -23,8 +23,8 @@ void LogInOutController::start_login_process() {
     data.username = username;
     data.password = password;
     
-    
-
+    // Use case activated!
+    login_interactor.log_in(data);
 }
 
 void LogInOutController::start_logout_process() {

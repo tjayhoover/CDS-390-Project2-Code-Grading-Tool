@@ -10,6 +10,8 @@ class LoginInteractor {
 public:
     LoginInteractor(AbstractDatabase*, AbstractAuthenticator*, LoginPresenterInterface*);
 
+    void log_in(login_request);
+
 private:
     // Interface to database
     AbstractDatabase* storage;

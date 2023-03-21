@@ -7,6 +7,9 @@
 #include "plugin_glue/database/database.hpp"
 #include "plugin_glue/authenticator/authenticator.hpp"
 
+// Include the UI
+#include "console_interface/console_ui.hpp"
+
 // Include the relevant bits for the submission use case
 #include "submit_assignment/interactors/submit_assignment.hpp"
 #include "submit_assignment/views/submission_view.hpp"
@@ -27,16 +30,14 @@ using namespace std;
 
 int main(int, char**) {
 
-    // Create the database, grader, and authenticator
+    // Create the database, grader, authenticator, and user interface
     unique_ptr<Grader> g = make_unique<Grader>();
     unique_ptr<Database> db = make_unique<Database>();
     unique_ptr<Authenticator> auth = make_unique<Authenticator>();
 
-    // Initialize the use cases
+    // Initialize dependencies of the use cases
 
     // Login Use Case
-
-    // Instantiate everything to do with the login/logout use cases
     unique_ptr<LoginPresenter> login_presenter = make_unique<LoginPresenter>();
     unique_ptr<LogoutPresenter> logout_presenter = make_unique<LogoutPresenter>();
     login_presenter->setView<LoginView>();
@@ -45,17 +46,15 @@ int main(int, char**) {
     LogoutInteractor logout_interactor = LogoutInteractor(logout_presenter.get());
     LogInOutController log_in_out_controller = LogInOutController(login_interactor, logout_interactor);
     
-    // Instantiate everything to do with the submission use case
+    // Submission Use Case
     unique_ptr<SubmissionPresenter> sub_presenter = make_unique<SubmissionPresenter>();
     sub_presenter->setView<SubmissionView>();
     SubmissionInteractor sub_interactor = SubmissionInteractor(db.get(), g.get(), sub_presenter.get());
     SubmissionController sub_controller(sub_interactor);
 
-    
+    // Create the UI and hand it the use case controllers
+    ConsoleUserInterface ui(log_in_out_controller, sub_controller);
 
-    cout << "Welcome to Beetcode." << endl;
-    // Start the submission use case
-    sub_controller.start_submission();
-
-    cout << "Exiting Program" << endl;
+    // Start the event loop
+    ui.run();
 }

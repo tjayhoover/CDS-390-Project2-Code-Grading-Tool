@@ -12,6 +12,7 @@ struct login_request {
 struct login_response {
     std::string name;
     std::string role;
+    std::string menu;
 };
 
 #endif
