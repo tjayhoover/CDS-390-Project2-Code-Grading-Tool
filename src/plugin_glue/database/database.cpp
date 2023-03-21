@@ -6,7 +6,6 @@
 using namespace std;
 
 Database::Database() {
-    cout << "Database - implemented" << endl;
 }
 
 User Database::get_user(std::string username) {

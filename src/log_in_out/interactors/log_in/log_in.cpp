@@ -9,7 +9,7 @@ void LoginInteractor::log_in(login_request data) {
 
     login_response return_data;
     return_data.name = data.username;
-    return_data.role = "Admin";
+    return_data.role = "student";
 
     presenter->presentResult(return_data);
 }

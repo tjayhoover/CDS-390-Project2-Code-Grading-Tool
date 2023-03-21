@@ -31,6 +31,9 @@ void ConsoleUserInterface::run() {
                 else if(response == 'c') {
                     cout << "You chose c!" << endl;
                 }
+                else if(response == 'd') {
+                    break;
+                }
             }
             else if(user.get_permission() == PermissionLevel::Instructor) {
                 cout << instructor_menu << endl;
@@ -44,6 +47,9 @@ void ConsoleUserInterface::run() {
                 else if(response == 'c') {
                     cout << "You chose c!" << endl;
                 }
+                else if(response == 'd') {
+                    break;
+                }
             }
             else if(user.get_permission() == PermissionLevel::Student) {
                 cout << student_menu << endl;
@@ -56,6 +62,9 @@ void ConsoleUserInterface::run() {
                 }
                 else if(response == 'c') {
                     cout << "You chose c!" << endl;
+                }
+                else if(response == 'd') {
+                    break;
                 }
             }
             else break;
