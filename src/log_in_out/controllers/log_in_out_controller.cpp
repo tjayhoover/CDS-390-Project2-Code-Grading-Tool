@@ -10,7 +10,7 @@ using namespace std;
 LogInOutController::LogInOutController(LoginInteractor li, LogoutInteractor lo) :
     login_interactor(li), logout_interactor(lo){}
 
-void LogInOutController::start_login_process() {
+std::pair<bool, User> LogInOutController::start_login_process() {
 
     cout << "Please type in your username:" << endl;
     string username;
@@ -22,9 +22,13 @@ void LogInOutController::start_login_process() {
     login_request data;
     data.username = username;
     data.password = password;
+
+    User u(PermissionLevel::Student, "Tyler");
     
     // Use case activated!
     login_interactor.log_in(data);
+
+    return std::make_pair(true, u);
 }
 
 void LogInOutController::start_logout_process() {

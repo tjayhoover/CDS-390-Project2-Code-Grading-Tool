@@ -2,8 +2,7 @@
 
 void LoginPresenter::presentResult(login_response data) {
     ViewModel vm;
-    vm.output = "Hello, " + data.name + "\n" + "As an " + data.role + 
-                " you can do the following:\n" + data.menu;
+    vm.output = "Welcome, " + data.name + "! " + "You are a(n) " + data.role;
  
     view->display(vm);
 }

@@ -9,7 +9,7 @@ class LogInOutController {
 public:
     LogInOutController(LoginInteractor, LogoutInteractor);
 
-    void start_login_process();
+    std::pair<bool, User> start_login_process();
     void start_logout_process();
 
 private:
