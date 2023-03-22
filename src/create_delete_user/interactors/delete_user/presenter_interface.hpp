@@ -1,17 +1,12 @@
-#ifndef PRESENTER_INTERFACE_HPP
-#define PRESENTER_INTERFACE_HPP
-#ifndef PRESENTER_INTERFACE_HPP
-#define PRESENTER_INTERFACE_HPP
+#ifndef DELETE_USER_PRESENTER_INTERFACE_HPP
+#define DELETE_USER_PRESENTER_INTERFACE_HPP
 
-#include "../../request_response_models/login_models.hpp"
+#include "../../request_response_models/delete_user_models.hpp"
 
-class PresenterInterface {
+class DeleteUserPresenterInterface {
 
 public:
-    virtual void presentResult(login_response data) = 0;
+    virtual void presentResult(delete_user_response data) = 0;
 };
-
-#endif
-
 
 #endif
