@@ -32,6 +32,7 @@ add_subdirectory(submit_assignment)
 add_subdirectory(log_in_out)
 add_subdirectory(create_delete_assignment)
 add_subdirectory(create_delete_user)
+add_subdirectory(grade_report)
 
 # Add the user interface
 add_subdirectory(console_interface)
