@@ -11,6 +11,8 @@
 
 #include "database.hpp"
 
+#include "abstract_database.hpp"
+
 #include "../../../src/entities/user/user.hpp"
 #include "../../../src/entities/assignment/assignment.hpp"
 #include "../../../src/entities/submission/submission.hpp"

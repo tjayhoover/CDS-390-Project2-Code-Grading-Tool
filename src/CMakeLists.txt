@@ -13,6 +13,7 @@ if(Boost_FOUND)
 endif()
 
 target_link_libraries(${PROJECT_NAME} PUBLIC python_grader)
+target_link_libraries(${PROJECT_NAME} PUBLIC bauer_database)
 
 #Are these both required?
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/interfaces")

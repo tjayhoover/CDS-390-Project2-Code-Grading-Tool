@@ -2,6 +2,7 @@
 #define BAUER_DATABASE_HPP
 
 #include <string>
+#include <vector>
 #include <unordered_map>
 
 class bauer_DB{
