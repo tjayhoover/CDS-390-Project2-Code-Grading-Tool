@@ -22,8 +22,6 @@ class bauer_DB{
 
     private:
 
-    int ID_generation();
-
     // creates folder structure
     bool create_default_structure();
     // create default config
