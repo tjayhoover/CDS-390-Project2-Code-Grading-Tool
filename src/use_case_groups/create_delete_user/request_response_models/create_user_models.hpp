@@ -1,6 +1,8 @@
 #ifndef CREATE_USER_MODELS_HPP
 #define CREATE_USER_MODELS_HPP
 
+#include "../entities/user/user.hpp"
+
 #include <string>
 
 struct create_user_request {
