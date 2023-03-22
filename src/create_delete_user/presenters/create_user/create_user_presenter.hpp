@@ -5,7 +5,7 @@
 #include "view_interface.hpp"
 #include <memory>
 
-class CreateUserPresenter: CreateUserPresenterInterface {
+class CreateUserPresenter: public CreateUserPresenterInterface {
 
 public:
     void presentResult(create_user_response) override;

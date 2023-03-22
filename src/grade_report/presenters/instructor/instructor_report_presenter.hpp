@@ -5,7 +5,7 @@
 #include "view_interface.hpp"
 #include <memory>
 
-class InstructorReportPresenter: InstructorReportPresenterInterface {
+class InstructorReportPresenter: public InstructorReportPresenterInterface {
 
 public:
     void presentResult(instructor_report_response) override;

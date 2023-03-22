@@ -5,7 +5,7 @@
 #include "view_interface.hpp"
 #include <memory>
 
-class DeleteUserPresenter: DeleteUserPresenterInterface {
+class DeleteUserPresenter: public DeleteUserPresenterInterface {
 
 public:
     void presentResult(delete_user_response) override;

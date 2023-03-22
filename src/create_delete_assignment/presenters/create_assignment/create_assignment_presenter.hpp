@@ -5,7 +5,7 @@
 #include "view_interface.hpp"
 #include <memory>
 
-class CreateAssignmentPresenter: CreateAssignmentPresenterInterface {
+class CreateAssignmentPresenter: public CreateAssignmentPresenterInterface {
 
 public:
     void presentResult(create_assignment_response) override;

@@ -5,7 +5,7 @@
 #include "view_interface.hpp"
 #include <memory>
 
-class DeleteAssignmentPresenter: DeleteAssignmentPresenterInterface {
+class DeleteAssignmentPresenter: public DeleteAssignmentPresenterInterface {
 
 public:
     void presentResult(delete_assignment_response) override;
