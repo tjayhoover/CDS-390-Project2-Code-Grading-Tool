@@ -16,6 +16,8 @@
 class AbstractDatabase {
 public:
 
+  virtual ~AbstractDatabase() = default;
+
   // Adds to database
   virtual void add_user(User user) = 0;
   virtual void add_assignment(Assignment assignment) = 0;

@@ -28,7 +28,7 @@ class Assignment {
     void submit_work(const std::string& sub_name);
 
     // Helper function to grade work once its submitted, used in submit_work
-    int grade_work();
+    //int grade_work();
 
     // Given a pair of strings representing the filepath to an input and
     // expected output file, add this pair to this Assignment's pool of test
@@ -46,6 +46,8 @@ class Assignment {
     
     // Returns our list of filepaths to submissions.
     std::vector<std::string> get_submissions();
+
+    int get_max_grade();
 
     private:
 
