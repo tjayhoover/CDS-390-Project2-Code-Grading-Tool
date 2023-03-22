@@ -18,30 +18,31 @@ public:
 
   virtual ~AbstractDatabase() = default;
 
-  // I don't think any use case will every need in memory lists of 
-  // all assignments, submissions, and users.
-  // Database logic should be done in a lower level; the use case
-  // shouldn't have to sort through stuff 
+  // Adds to database
+  virtual void add_user(User user) = 0;
+  virtual void add_assignment(Assignment assignment) = 0;
+  virtual void add_submission(Submission submission) = 0;
 
-  // I propose adding these:
-  virtual Assignment get_assignment(std::string name) = 0;
-  virtual User get_user(std::string username) = 0;
-  //virtual Submission get_submission(std::) = 0;
+  // Removes from database
+  virtual void del_user(const std::string& ID) = 0;
+  virtual void del_assignment(const std::string& ID) = 0;
+  virtual void del_submission(const std::string& ID) = 0;
 
+  // Gets all from database
   virtual std::vector<Assignment> get_assignments() = 0;
   virtual std::vector<User> get_users() = 0;
   virtual std::vector<Submission> get_submissions() = 0;
 
+  // Gets single based on ID
+  virtual Assignment get_assignment(const std::string& ID) = 0;
+  virtual User get_user(const std::string& ID) = 0;
+  virtual Submission get_submission(const std::string& ID) = 0;
 
-  // These, however, are required:
+    // Gets all names for from database
+  virtual std::vector<std::string> get_assignment_names() = 0;
+  virtual std::vector<std::string> get_user_names() = 0 ;
+  virtual std::vector<std::string> get_submission_names() = 0;
 
-  virtual void add_user(User& user) = 0;
-  virtual void add_assignment(Assignment& assignment) = 0;
-  virtual void add_submission(Submission& submission) = 0;
-
-  virtual void del_user(User& user) = 0;
-  virtual void del_assignment(Assignment& assignment) = 0;
-  virtual void del_submission(Submission& submission) = 0;
 };
 
 #endif

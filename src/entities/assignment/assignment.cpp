@@ -11,8 +11,8 @@
 
 #include "assignment.hpp"
 
-Assignment::Assignment(const std::string& name, boost::posix_time::ptime deadline)
-: name(name), deadline(deadline) { 
+Assignment::Assignment(const std::string& name, const std::string& deadline)
+: name(name), deadline(boost::posix_time::time_from_string(deadline)) { 
 
   description = "No description is available.";
   
@@ -97,13 +97,9 @@ int Assignment::get_max_grade(){
   return max_grade;
 }
 
-// std::pair<std::string,Submission> Assignment::submit_work(const std::string& username, const std::string& program, int grade){
-//   Submission submission(username, program);
-//   submission.set_grade(grade);
-//   std::string sub_ID = name + "_" + username + "_" + std::to_string(size(submissions));
-//   submissions.push_back(sub_ID);
-//   return {sub_ID,submission};
-// }
+void Assignment::submit_work(const std::string& sub_name){
+  submissions.push_back(sub_name);
+}
 
 void Assignment::add_test_case(std::pair<std::string, std::string> test_case){
   test_cases.push_back(test_case);

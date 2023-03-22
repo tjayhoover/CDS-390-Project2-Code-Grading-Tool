@@ -1,2 +1,5 @@
-Place client and project development notes here:
+TODO:
 
+Assignment function submit work
+database adapter
+bauer database

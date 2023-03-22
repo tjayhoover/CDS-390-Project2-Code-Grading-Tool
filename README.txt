@@ -6,3 +6,6 @@ Username: Admin
 Password: password
 
 When making output files for grading programs be mindful of ending newline characters or carriage returns
+
+
+This now requires Boost and crypto++ version 8.7.0-1 to be installed.

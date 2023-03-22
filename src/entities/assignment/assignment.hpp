@@ -13,10 +13,10 @@
 class Assignment {
     public:
 
-    Assignment() = delete;
+    Assignment() = default;
     
     // Minimum viable set of parameters for a valid Assignment object.
-    Assignment(const std::string& name, boost::posix_time::ptime deadline);
+    Assignment(const std::string& name, const std::string& deadline);
     
     // All parameters available; used for loading Assignments from Databases.
     Assignment(const std::vector<std::string>& params);
@@ -25,9 +25,7 @@ class Assignment {
     
     std::vector<std::string> save();
 
-    // Given the name of a user and a filepath to their program submission,
-    // create a Submission object, grade the program, and store the Submission.
-    std::pair<std::string,Submission> submit_work(const std::string& username, const std::string& program);
+    void submit_work(const std::string& sub_name);
 
     // Helper function to grade work once its submitted, used in submit_work
     //int grade_work();
@@ -43,6 +41,7 @@ class Assignment {
     
     std::string get_name();
     std::string get_description();
+    int get_max_grade();
     boost::posix_time::ptime get_deadline();
     
     // Returns our list of filepaths to submissions.
