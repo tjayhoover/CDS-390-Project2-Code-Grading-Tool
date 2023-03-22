@@ -47,6 +47,10 @@ class Assignment {
     // Returns our list of filepaths to submissions.
     std::vector<std::string> get_submissions();
 
+    int get_num_submissions();
+
+    std::vector<std::pair<std::string, std::string>> get_test_cases();
+
     private:
 
     std::string name;

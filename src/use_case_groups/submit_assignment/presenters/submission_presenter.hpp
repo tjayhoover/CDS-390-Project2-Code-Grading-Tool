@@ -12,7 +12,7 @@ class SubmissionPresenter: public PresenterInterface {
 public:
     //SubmissionPresenter();
 
-    void presentResult(return_data data) override;
+    void presentResult(submission_response data) override;
 
     template<class V>
     void setView() {

@@ -105,3 +105,11 @@ void Assignment::add_test_case(std::pair<std::string, std::string> test_case){
   test_cases.push_back(test_case);
   ++max_grade;
 }
+
+int Assignment::get_num_submissions() {
+  return submissions.size();
+}
+
+std::vector<std::pair<std::string, std::string>> Assignment::get_test_cases() {
+  return test_cases;
+}
