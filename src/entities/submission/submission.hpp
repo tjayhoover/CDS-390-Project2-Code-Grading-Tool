@@ -20,8 +20,6 @@ they submitted, and the number of test cases that program passed.
 
 class Submission {
     public:
-
-    Submission() = delete;
     
     // Constructor for a viable Submission object.
     Submission(const std::string& student_name, const std::string& program, boost::posix_time::ptime time);

@@ -21,7 +21,7 @@ class DB_adapter : public AbstractDatabase {
     
   public:
 
-  DB_adapter(bauer_DB* db);
+  DB_adapter();
   ~DB_adapter();
 
   // Adds to database

@@ -51,7 +51,7 @@ bauer_DB::bauer_DB(const std::string& cfg_path){
     int name_len    = temp.find_first_of(' ');
     int param_start = temp.find_first_of('"')+1;
     int param_len   = (temp.find_last_of('"')) - param_start;
-      ID_to_path[std::stoi(temp.substr(0,name_len))] = 
+      ID_to_path[temp.substr(0,name_len)] = 
         temp.substr(param_start,param_len);
     }
   }
@@ -119,7 +119,7 @@ void bauer_DB::write_data(const std::string& ID,const vector<string>& data) {
   if(existance(ID)) delete_data(ID);
 
   ID_to_path[ID] = (params["files_loc"]+ID+"_file.dat");
-  std::ofstream ofs(ID_to_path[]);
+  std::ofstream ofs(ID_to_path[ID]);
   
   for (const string& line : data)
     ofs << line << std::endl;

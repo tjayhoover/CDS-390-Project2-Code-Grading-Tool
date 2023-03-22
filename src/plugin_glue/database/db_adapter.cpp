@@ -12,7 +12,7 @@
 
 using namespace std;
 
-DB_adatper::DB_adapter(bauer_DB* db):db(db){
+DB_adapter::DB_adapter(){
     /*
     I've clearly made a mistake here...
     maintain files of user, assignment, and submission IDs
@@ -20,6 +20,10 @@ DB_adatper::DB_adapter(bauer_DB* db):db(db){
 
     this means the destructor creates theses files in the database
     */
+
+    bauer_DB db{};
+    this->db = db;
+
     if(db.existance("User_list")){
         vector<string> temp = db.read_data("User_list");
         for(auto& user : temp){
@@ -45,7 +49,7 @@ DB_adatper::DB_adapter(bauer_DB* db):db(db){
 
 }
 
-DB_adatper::~DB_adapter(){
+DB_adapter::~DB_adapter(){
     // Basically create the list files, save em, and then save all objects
 
     // Users
@@ -57,20 +61,20 @@ DB_adatper::~DB_adapter(){
     db.write_data("User_list",user_list);
 
     // Assignments
-    vector<string> submission_list;
-    for(auto& submission : submissions){
-        assignment_list.push_back(submission.first);
-        db.write_data(submission.first,submission.second.save());
-    }
-    db.write_data("Assignment_list",submission_list);
-
-    // Submissions
-    vector<string> submission_list;
-    for(auto& assignment : assingments){
+    vector<string> assignment_list;
+    for(auto& assignment : assignments){
         assignment_list.push_back(assignment.first);
         db.write_data(assignment.first,assignment.second.save());
     }
-    db.write_data("Submission_list",assignmnet_list);
+    db.write_data("Assignment_list",assignment_list);
+
+    // Submissions
+    vector<string> submission_list;
+    for(auto& submission : submissions){
+        submission_list.push_back(submission.first);
+        db.write_data(submission.first,submission.second.save());
+    }
+    db.write_data("Submission_list",submission_list);
 
     //theoretically we are done... need to test the adapter with the database
 }
@@ -135,17 +139,17 @@ Submission DB_adapter::get_submission(const std::string& ID){
 }
 
 // Gets all names for from database
-std::vector<std::string> DB_adatper::get_assignment_names(){
+std::vector<std::string> DB_adapter::get_assignment_names(){
     std::vector<std::string> temp;
     for(auto& assignment : assignments) temp.push_back(assignment.first);
     return temp;
 }
-std::vector<std::string> DB_adatper::get_user_names(){
+std::vector<std::string> DB_adapter::get_user_names(){
     std::vector<std::string> temp;
     for(auto& user : users) temp.push_back(user.first);
     return temp;
 }
-std::vector<std::string> DB_adatper::get_submission_names(){
+std::vector<std::string> DB_adapter::get_submission_names(){
     std::vector<std::string> temp;
     for(auto& submission : submissions) temp.push_back(submission.first);
     return temp;
