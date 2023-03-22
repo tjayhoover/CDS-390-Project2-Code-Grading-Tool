@@ -97,9 +97,8 @@ int Assignment::get_max_grade(){
   return max_grade;
 }
 
-// THIS NEEDS TO BE IMPLEMENTED
-std::pair<std::string,Submission> Assignment::submit_work(){
-
+void Assignment::submit_work(const std::string& sub_name){
+  submissions.push_back(sub_name);
 }
 
 void Assignment::add_test_case(std::pair<std::string, std::string> test_case){

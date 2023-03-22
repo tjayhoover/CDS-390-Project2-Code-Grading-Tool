@@ -20,6 +20,9 @@ enum PermissionLevel {
 
 class User {
     public:
+
+    User() = default;
+
     // Constructor for database
     User(std::vector<std::string>);
 

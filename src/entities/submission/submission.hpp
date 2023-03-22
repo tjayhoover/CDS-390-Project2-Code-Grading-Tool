@@ -20,9 +20,11 @@ they submitted, and the number of test cases that program passed.
 
 class Submission {
     public:
+
+    Submission() = default;
     
     // Constructor for a viable Submission object.
-    Submission(const std::string& student_name, const std::string& program, boost::posix_time::ptime time);
+    Submission(const std::string& sub_name, const std::string& student_name, const std::string& program, boost::posix_time::ptime time);
     
     // Constructor containing all parameters for use by Databases.
     Submission(const std::vector<std::string>& params);
@@ -32,7 +34,7 @@ class Submission {
     std::vector<std::string> save();
     
     void set_grade(int grade);
-    std::string set_sub_name(const std::string& name);
+    void set_sub_name(const std::string& name);
     
     std::string get_student_name();
     std::string get_program();

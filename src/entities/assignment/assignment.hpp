@@ -13,7 +13,7 @@
 class Assignment {
     public:
 
-    Assignment() = delete;
+    Assignment() = default;
     
     // Minimum viable set of parameters for a valid Assignment object.
     Assignment(const std::string& name, const std::string& deadline);
@@ -25,10 +25,7 @@ class Assignment {
     
     std::vector<std::string> save();
 
-    // THIS NEEDS TO BE IMPLEMENTED
-    // Given the name of a user and a filepath to their program submission,
-    // create a Submission object, grade the program, and store the Submission.
-    std::pair<std::string,Submission> submit_work();
+    void submit_work(const std::string& sub_name);
 
     // Helper function to grade work once its submitted, used in submit_work
     int grade_work();
