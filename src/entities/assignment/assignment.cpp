@@ -11,8 +11,8 @@
 
 #include "assignment.hpp"
 
-Assignment::Assignment(const std::string& name, const std::string& deadline)
-: name(name), deadline(boost::posix_time::time_from_string(deadline)) { 
+Assignment::Assignment(const std::string& name, boost::posix_time::ptime deadline)
+: name(name), deadline(deadline) { 
 
   description = "No description is available.";
   

@@ -16,7 +16,7 @@ class Assignment {
     Assignment() = default;
     
     // Minimum viable set of parameters for a valid Assignment object.
-    Assignment(const std::string& name, const std::string& deadline);
+    Assignment(const std::string& name, boost::posix_time::ptime deadline);
     
     // All parameters available; used for loading Assignments from Databases.
     Assignment(const std::vector<std::string>& params);

@@ -62,6 +62,13 @@ int main(int, char**) {
     unique_ptr<DB_adapter> db = make_unique<DB_adapter>();
     unique_ptr<Authenticator> auth = make_unique<Authenticator>();
 
+    // If it doesn't exist, add the default admin to the database
+    if(!db->exists("admin")) {
+        User admin(PermissionLevel::Admin, "admin");
+        admin.set_password("password");
+        db->add_user(admin);
+    }
+
     // Initialize dependencies of the use cases
 
     // Submission Use Case

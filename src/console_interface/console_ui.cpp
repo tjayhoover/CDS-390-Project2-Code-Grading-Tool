@@ -86,7 +86,6 @@ void ConsoleUserInterface::run() {
                 // Submit assignment option
                 else if(response == 'b'){
                     submission_controller.start_submission(this->user.get_username());
-                    cout << "You chose b!" << endl;
                 }
 
                 // Log out option

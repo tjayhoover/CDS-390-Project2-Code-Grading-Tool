@@ -5,10 +5,11 @@
 
 struct create_user_request {
     std::string username;
+    PermissionLevel permission_level;
 };
 
 struct create_user_response {
-    std::string message;
+    bool success;
 };
 
 #endif
