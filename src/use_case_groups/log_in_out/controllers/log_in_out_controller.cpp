@@ -23,12 +23,8 @@ std::pair<bool, User> LogInOutController::start_login_process() {
     data.username = username;
     data.password = password;
 
-    User u(PermissionLevel::Student, "Tyler");
-    
     // Use case activated!
-    login_interactor.log_in(data);
-
-    return std::make_pair(true, u);
+    return login_interactor.log_in(data);
 }
 
 void LogInOutController::start_logout_process() {
