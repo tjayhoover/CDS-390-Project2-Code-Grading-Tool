@@ -11,8 +11,9 @@ char ConsoleUserInterface::get_response() {
     return c;
 }
 
-ConsoleUserInterface::ConsoleUserInterface(LogInOutController lc, SubmissionController sc) 
-    : log_in_out_controller(lc), submission_controller(sc), user(PermissionLevel::Null, "") {}
+ConsoleUserInterface::ConsoleUserInterface(LogInOutController lc, SubmissionController sc, ReportController rc, UserController uc, AssignmentController ac)
+    : log_in_out_controller(lc), submission_controller(sc), report_controller(rc), user_controller(uc), assignment_controller(ac), user(PermissionLevel::Null, "") 
+    {}
 
 void ConsoleUserInterface::run() {
     // Start the event loop

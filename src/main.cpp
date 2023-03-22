@@ -111,7 +111,7 @@ int main(int, char**) {
 
 
     // Create the UI and hand it the use case controllers
-    ConsoleUserInterface ui(log_in_out_controller, sub_controller);
+    ConsoleUserInterface ui(log_in_out_controller, sub_controller, report_controller, user_controller, assignment_controller);
 
     // Start the event loop
     ui.run();
