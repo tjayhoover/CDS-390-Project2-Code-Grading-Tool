@@ -24,15 +24,21 @@ class DB_adapter : public AbstractDatabase {
   DB_adapter();
   ~DB_adapter();
 
+  bool exists(const std::string& ID);
+
   // Adds to database
   void add_user(User user);
   void add_assignment(Assignment assignment);
   void add_submission(Submission submission);
+  void add_input_case(const std::string& ID, const std::string& str);
+  void add_output_case(const std::string& ID, const std::string& str);
 
   // Removes from database
   void del_user(const std::string& ID);
   void del_assignment(const std::string& ID);
   void del_submission(const std::string& ID);
+  void del_input_case(const std::string& ID);
+  void del_output_case(const std::string& ID);
 
   // Gets all from database
   std::vector<Assignment> get_assignments();
@@ -43,6 +49,8 @@ class DB_adapter : public AbstractDatabase {
   Assignment get_assignment(const std::string& ID);
   User get_user(const std::string& ID);
   Submission get_submission(const std::string& ID);
+  std::string get_input_case(const std::string& ID);
+  std::string get_output_case(const std::string& ID);
 
   // Gets all names for from database
   std::vector<std::string> get_assignment_names();

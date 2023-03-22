@@ -55,8 +55,6 @@ bauer_DB::bauer_DB(const std::string& cfg_path){
         temp.substr(param_start,param_len);
     }
   }
-
-  for(auto& str : ID_to_path) std::cout << str.second << std::endl;
 }
 
 bauer_DB::~bauer_DB(){

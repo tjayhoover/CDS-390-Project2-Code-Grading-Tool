@@ -5,6 +5,12 @@
 
 using namespace std;
 
+void ConsoleUserInterface::log_out() {
+    this->logged_in = false;
+    this->user = User();
+    cout << "You have successfully logged out." << endl;
+}
+
 char ConsoleUserInterface::get_response() {
     char c;
     cin >> c;
@@ -23,15 +29,23 @@ void ConsoleUserInterface::run() {
             if(user.get_permission() == PermissionLevel::Admin) {
                 cout << admin_menu << endl;
                 char response = get_response();
+
+                // Add user option
                 if(response == 'a') {
                     cout << "You chose a!" << endl;
                 }
+
+                // Delete user option
                 else if(response == 'b'){
                     cout << "You chose b!" << endl;
                 }
+
+                // log out option
                 else if(response == 'c') {
-                    cout << "You chose c!" << endl;
+                    this->log_out();
                 }
+
+                // quit
                 else if(response == 'd') {
                     break;
                 }
@@ -39,15 +53,23 @@ void ConsoleUserInterface::run() {
             else if(user.get_permission() == PermissionLevel::Instructor) {
                 cout << instructor_menu << endl;
                 char response = get_response();
+
+                // View Grade Report option
                 if(response == 'a') {
                     cout << "You chose a!" << endl;
                 }
+
+                // Upload Assignment option
                 else if(response == 'b'){
                     cout << "You chose b!" << endl;
                 }
+
+                // Log out
                 else if(response == 'c') {
-                    cout << "You chose c!" << endl;
+                    this->log_out();
                 }
+
+                // Quit
                 else if(response == 'd') {
                     break;
                 }
@@ -55,15 +77,24 @@ void ConsoleUserInterface::run() {
             else if(user.get_permission() == PermissionLevel::Student) {
                 cout << student_menu << endl;
                 char response = get_response();
+
+                // View Grades option
                 if(response == 'a') {
                     cout << "You chose a!" << endl;
                 }
+
+                // Submit assignment option
                 else if(response == 'b'){
+                    submission_controller.start_submission(this->user.get_username());
                     cout << "You chose b!" << endl;
                 }
+
+                // Log out option
                 else if(response == 'c') {
-                    cout << "You chose c!" << endl;
+                    this->log_out();
                 }
+
+                // Quit option
                 else if(response == 'd') {
                     break;
                 }

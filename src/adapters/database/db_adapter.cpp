@@ -79,6 +79,12 @@ DB_adapter::~DB_adapter(){
     //theoretically we are done... need to test the adapter with the database
 }
 
+bool DB_adapter::exists(const std::string& ID){
+    if(users.find(ID)!=std::end(users)) return true;
+    if(submissions.find(ID)!=std::end(submissions)) return true;
+    if(assignments.find(ID)!=std::end(assignments)) return true;
+    return false;
+}
 
 // Adds to database
 void DB_adapter::add_user(User user){
@@ -93,6 +99,13 @@ void DB_adapter::add_submission(Submission submission){
     submissions[submission.get_sub_name()] = submission;
 }
 
+void DB_adapter::add_input_case(const std::string& ID, const std::string& str){
+    db.write_data(ID,{str});
+}
+void DB_adapter::add_output_case(const std::string& ID, const std::string& str){
+    db.write_data(ID,{str});
+}
+
 // Removes from database
 void DB_adapter::del_user(const std::string& ID){
     users.erase(ID);
@@ -104,6 +117,13 @@ void DB_adapter::del_assignment(const std::string& ID){
 
 void DB_adapter::del_submission(const std::string& ID){
     submissions.erase(ID);
+}
+
+void DB_adapter::del_input_case(const std::string& ID){
+    db.delete_data(ID);
+}
+void DB_adapter::del_output_case(const std::string& ID){
+    db.delete_data(ID);
 }
 
 // Gets all from database
@@ -136,6 +156,13 @@ User DB_adapter::get_user(const std::string& ID){
 
 Submission DB_adapter::get_submission(const std::string& ID){
     return submissions[ID];
+}
+
+std::string DB_adapter::get_input_case(const std::string& ID){
+    return db.read_data(ID)[0];
+}
+std::string DB_adapter::get_output_case(const std::string& ID){
+    return db.read_data(ID)[0];
 }
 
 // Gets all names for from database

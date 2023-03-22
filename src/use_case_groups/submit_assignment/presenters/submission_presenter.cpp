@@ -5,12 +5,16 @@
 
 // This is the presenter. It recieves data from the interactor
 // puts it in the view model, and hands it to the view.
-void SubmissionPresenter::presentResult(return_data data) {
+void SubmissionPresenter::presentResult(submission_response data) {
 
     // Put the data in the view model
     ViewModel vm;
-    vm.output = "Your grade is " + std::to_string(data.grade);
-    std::cout << "Presenter Running" << std::endl;
-    // Hand control to the view to do UI stuff
+    if(data.success) {
+        vm.output = "You passed " + std::to_string(data.num_passed)
+                    + "/" + std::to_string(data.num_cases) + " test cases.";
+    }
+    else {
+        vm.output = "That assignment does not exist.";
+    }
     view->display(vm);
 }

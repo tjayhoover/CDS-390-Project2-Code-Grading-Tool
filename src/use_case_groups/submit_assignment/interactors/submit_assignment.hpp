@@ -12,7 +12,7 @@ class SubmissionInteractor {
 public:
     SubmissionInteractor(AbstractDatabase* d, AbstractGrader* g, PresenterInterface* p);
 
-    double submit_assignment(incoming_submission sub);
+    void submit_assignment(submission_request sub);
 
 private:
     AbstractGrader* grader;

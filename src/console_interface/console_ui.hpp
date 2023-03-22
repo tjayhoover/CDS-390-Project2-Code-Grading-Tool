@@ -16,6 +16,8 @@ public:
     
     char get_response();
 
+    void log_out();
+
     void run();
 
 private:
