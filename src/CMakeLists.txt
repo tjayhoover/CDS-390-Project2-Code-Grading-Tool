@@ -30,6 +30,7 @@ add_subdirectory(plugin_glue/authenticator)
 # Add the use case groups
 add_subdirectory(submit_assignment)
 add_subdirectory(log_in_out)
+add_subdirectory(create_delete_assignment)
 
 # Add the user interface
 add_subdirectory(console_interface)

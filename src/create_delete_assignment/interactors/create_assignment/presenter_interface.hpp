@@ -1,12 +1,12 @@
-#ifndef PRESENTER_INTERFACE_HPP
-#define PRESENTER_INTERFACE_HPP
+#ifndef CREATE_ASSIGNMENT_PRESENTER_INTERFACE_HPP
+#define CREATE_ASSIGNMENT_PRESENTER_INTERFACE_HPP
 
-#include "../../request_response_models/login_models.hpp"
+#include "../../request_response_models/create_assignment_models.hpp"
 
-class PresenterInterface {
+class CreateAssignmentPresenterInterface {
 
 public:
-    virtual void presentResult(login_response data) = 0;
+    virtual void presentResult(create_assignment_response data) = 0;
 };
 
 #endif
