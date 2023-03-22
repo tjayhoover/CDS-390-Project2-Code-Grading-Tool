@@ -2,11 +2,11 @@
 #define CONSOLE_UI_HPP
 
 #include "../entities/user/user.hpp"
-#include "../log_in_out/controllers/log_in_out_controller.hpp"
-#include "../submit_assignment/controllers/submission_controller.hpp"
-#include "../create_delete_assignment/controllers/assignment_controller.hpp"
-#include "../create_delete_user/controllers/user_controller.hpp"
-#include "../grade_report/controllers/report_controller.hpp"
+#include "../use_case_groups/log_in_out/controllers/log_in_out_controller.hpp"
+#include "../use_case_groups/submit_assignment/controllers/submission_controller.hpp"
+#include "../use_case_groups/create_delete_assignment/controllers/assignment_controller.hpp"
+#include "../use_case_groups/create_delete_user/controllers/user_controller.hpp"
+#include "../use_case_groups/grade_report/controllers/report_controller.hpp"
 
 #include <string>
 

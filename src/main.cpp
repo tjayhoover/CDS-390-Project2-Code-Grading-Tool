@@ -3,55 +3,55 @@
 #include <memory>
 
 // Include the classes which "glue" the external dependencies
-#include "plugin_glue/grader/grader.hpp"
-#include "plugin_glue/database/db_adapter.hpp"
-#include "plugin_glue/authenticator/authenticator.hpp"
+#include "adapters/grader/grader.hpp"
+#include "adapters/database/db_adapter.hpp"
+#include "adapters/authenticator/authenticator.hpp"
 
 // Include the UI
 #include "console_interface/console_ui.hpp"
 
 // Include the relevant bits for the submission use case
-#include "submit_assignment/interactors/submit_assignment.hpp"
-#include "submit_assignment/views/submission_view.hpp"
-#include "submit_assignment/request_response_models/submission_models.hpp"
-#include "submit_assignment/controllers/submission_controller.hpp"
-#include "submit_assignment/presenters/submission_presenter.hpp"
+#include "use_case_groups/submit_assignment/interactors/submit_assignment.hpp"
+#include "use_case_groups/submit_assignment/views/submission_view.hpp"
+#include "use_case_groups/submit_assignment/request_response_models/submission_models.hpp"
+#include "use_case_groups/submit_assignment/controllers/submission_controller.hpp"
+#include "use_case_groups/submit_assignment/presenters/submission_presenter.hpp"
 
 // Include the relevant bits for the login/logout use cases
-#include "log_in_out/controllers/log_in_out_controller.hpp"
-#include "log_in_out/interactors/log_in/log_in.hpp"
-#include "log_in_out/interactors/log_out/log_out.hpp"
-#include "log_in_out/presenters/log_in/login_presenter.hpp"
-#include "log_in_out/presenters/log_out/logout_presenter.hpp"
-#include "log_in_out/views/log_in/login_view.hpp"
-#include "log_in_out/views/log_out/logout_view.hpp"
+#include "use_case_groups/log_in_out/controllers/log_in_out_controller.hpp"
+#include "use_case_groups/log_in_out/interactors/log_in/log_in.hpp"
+#include "use_case_groups/log_in_out/interactors/log_out/log_out.hpp"
+#include "use_case_groups/log_in_out/presenters/log_in/login_presenter.hpp"
+#include "use_case_groups/log_in_out/presenters/log_out/logout_presenter.hpp"
+#include "use_case_groups/log_in_out/views/log_in/login_view.hpp"
+#include "use_case_groups/log_in_out/views/log_out/logout_view.hpp"
 
 // Include the relevant bits for the create/delete user use cases
-#include "create_delete_user/controllers/user_controller.hpp"
-#include "create_delete_user/interactors/create_user/create_user.hpp"
-#include "create_delete_user/interactors/delete_user/delete_user.hpp"
-#include "create_delete_user/presenters/create_user/create_user_presenter.hpp"
-#include "create_delete_user/presenters/delete_user/delete_user_presenter.hpp"
-#include "create_delete_user/views/create_user/create_user_view.hpp"
-#include "create_delete_user/views/delete_user/delete_user_view.hpp"
+#include "use_case_groups/create_delete_user/controllers/user_controller.hpp"
+#include "use_case_groups/create_delete_user/interactors/create_user/create_user.hpp"
+#include "use_case_groups/create_delete_user/interactors/delete_user/delete_user.hpp"
+#include "use_case_groups/create_delete_user/presenters/create_user/create_user_presenter.hpp"
+#include "use_case_groups/create_delete_user/presenters/delete_user/delete_user_presenter.hpp"
+#include "use_case_groups/create_delete_user/views/create_user/create_user_view.hpp"
+#include "use_case_groups/create_delete_user/views/delete_user/delete_user_view.hpp"
 
 // Include the relevant bits for the create/delete assignment use cases
-#include "create_delete_assignment/controllers/assignment_controller.hpp"
-#include "create_delete_assignment/interactors/create_assignment/create_assignment.hpp"
-#include "create_delete_assignment/interactors/delete_assignment/delete_assignment.hpp"
-#include "create_delete_assignment/presenters/create_assignment/create_assignment_presenter.hpp"
-#include "create_delete_assignment/presenters/delete_assignment/delete_assignment_presenter.hpp"
-#include "create_delete_assignment/views/create_assignment/create_assignment_view.hpp"
-#include "create_delete_assignment/views/delete_assignment/delete_assignment_view.hpp"
+#include "use_case_groups/create_delete_assignment/controllers/assignment_controller.hpp"
+#include "use_case_groups/create_delete_assignment/interactors/create_assignment/create_assignment.hpp"
+#include "use_case_groups/create_delete_assignment/interactors/delete_assignment/delete_assignment.hpp"
+#include "use_case_groups/create_delete_assignment/presenters/create_assignment/create_assignment_presenter.hpp"
+#include "use_case_groups/create_delete_assignment/presenters/delete_assignment/delete_assignment_presenter.hpp"
+#include "use_case_groups/create_delete_assignment/views/create_assignment/create_assignment_view.hpp"
+#include "use_case_groups/create_delete_assignment/views/delete_assignment/delete_assignment_view.hpp"
 
 // Include the relevant bits for the student/instructor grade report use cases
-#include "grade_report/controllers/report_controller.hpp"
-#include "grade_report/interactors/instructor/instructor_report.hpp"
-#include "grade_report/interactors/student/student_report.hpp"
-#include "grade_report/presenters/instructor/instructor_report_presenter.hpp"
-#include "grade_report/presenters/student/student_report_presenter.hpp"
-#include "grade_report/views/instructor/instructor_report_view.hpp"
-#include "grade_report/views/student/student_report_view.hpp"
+#include "use_case_groups/grade_report/controllers/report_controller.hpp"
+#include "use_case_groups/grade_report/interactors/instructor/instructor_report.hpp"
+#include "use_case_groups/grade_report/interactors/student/student_report.hpp"
+#include "use_case_groups/grade_report/presenters/instructor/instructor_report_presenter.hpp"
+#include "use_case_groups/grade_report/presenters/student/student_report_presenter.hpp"
+#include "use_case_groups/grade_report/views/instructor/instructor_report_view.hpp"
+#include "use_case_groups/grade_report/views/student/student_report_view.hpp"
 
 using namespace std;
 

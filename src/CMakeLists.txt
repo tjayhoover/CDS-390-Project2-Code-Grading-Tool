@@ -24,16 +24,16 @@ add_subdirectory(entities)
 
 
 # Add the library adapters
-add_subdirectory(plugin_glue/grader)
-add_subdirectory(plugin_glue/database)
-add_subdirectory(plugin_glue/authenticator)
+add_subdirectory(adapters/grader)
+add_subdirectory(adapters/database)
+add_subdirectory(adapters/authenticator)
 
 # Add the use case groups
-add_subdirectory(submit_assignment)
-add_subdirectory(log_in_out)
-add_subdirectory(create_delete_assignment)
-add_subdirectory(create_delete_user)
-add_subdirectory(grade_report)
+add_subdirectory(use_case_groups/submit_assignment)
+add_subdirectory(use_case_groups/log_in_out)
+add_subdirectory(use_case_groups/create_delete_assignment)
+add_subdirectory(use_case_groups/create_delete_user)
+add_subdirectory(use_case_groups/grade_report)
 
 # Add the user interface
 add_subdirectory(console_interface)
