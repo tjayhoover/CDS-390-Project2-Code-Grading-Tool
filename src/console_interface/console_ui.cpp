@@ -32,7 +32,7 @@ void ConsoleUserInterface::run() {
 
                 // Add user option
                 if(response == 'a') {
-                    cout << "You chose a!" << endl;
+                    user_controller.create_user();
                 }
 
                 // Delete user option
@@ -61,7 +61,7 @@ void ConsoleUserInterface::run() {
 
                 // Upload Assignment option
                 else if(response == 'b'){
-                    cout << "You chose b!" << endl;
+                    assignment_controller.create_assignment();
                 }
 
                 // Log out
