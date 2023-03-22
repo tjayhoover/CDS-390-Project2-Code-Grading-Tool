@@ -47,8 +47,6 @@ class Assignment {
     // Returns our list of filepaths to submissions.
     std::vector<std::string> get_submissions();
 
-    int get_max_grade();
-
     private:
 
     std::string name;

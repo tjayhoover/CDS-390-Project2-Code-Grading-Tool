@@ -4,7 +4,7 @@
 
 // Include the classes which "glue" the external dependencies
 #include "plugin_glue/grader/grader.hpp"
-#include "plugin_glue/database/database.hpp"
+#include "plugin_glue/database/db_adapter.hpp"
 #include "plugin_glue/authenticator/authenticator.hpp"
 
 // Include the UI
@@ -59,7 +59,7 @@ int main(int, char**) {
 
     // Create the database, grader, authenticator, and user interface
     unique_ptr<Grader> g = make_unique<Grader>();
-    unique_ptr<Database> db = make_unique<Database>();
+    unique_ptr<DB_adapter> db = make_unique<DB_adapter>();
     unique_ptr<Authenticator> auth = make_unique<Authenticator>();
 
     // Initialize dependencies of the use cases
