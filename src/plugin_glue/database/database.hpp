@@ -1,5 +1,5 @@
-#ifndef DATABASE_HPP
-#define DATABASE_HPP
+#ifndef DTABASE_HPP
+#define DTABASE_HPP
 
 #include "abstract_database.hpp"
 #include <string>
@@ -10,9 +10,15 @@
 class Database: public AbstractDatabase {
 
 public:
+
+  Database();
+
   std::vector<Assignment> get_assignments() override;
   std::vector<User> get_users() override;
   std::vector<Submission> get_submissions() override;
+
+  Assignment get_assignment(std::string name) override;
+  User get_user(std::string username) override;
   
   void add_user(User& user) override;
   void add_assignment(Assignment& assignment) override;

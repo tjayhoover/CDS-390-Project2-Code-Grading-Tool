@@ -3,8 +3,6 @@ project(GraderTests)
 
 set(CMAKE_CXX_STANDARD 17)
 
-enable_testing()
-
 add_executable(${PROJECT_NAME} grader_tests.cpp other_tests.cpp)
 
 find_package(GTest CONFIG REQUIRED)

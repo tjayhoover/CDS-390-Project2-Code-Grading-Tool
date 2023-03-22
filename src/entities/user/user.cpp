@@ -1,8 +1,7 @@
 #include <string>
-#include <ctime> // this will be swapped with boost time same for saving etc
+#include <chrono>
 
 #include "user.hpp"
-//#include "../Hash/hash.h"
 
 
 // Constructor for initializing variables for building users from database
@@ -31,13 +30,23 @@ PermissionLevel User::get_permission() const{
     return permission;
 }
 
-void User::set_password(const std::string& new_password){
-    /*
-    THIS IS NOT SECURE AND IS MAINLY PROOF OF CONCEPT
-    DO NOT DO THIS, AGAIN THIS IS NOT SECURE.
-    STD::HASH IS NOT SECURE FOR CRYPTOGRAPHIC PURPOSES
-    */
-    //password = Hash{}(salt,new_password);
+
+// Proof of concept for hashing passwords and not storing plaintext
+// THIS IS NOT A SECURE HASH DO NOT USE THIS FOR SECURITY PURPOSES
+// https://en.cppreference.com/w/cpp/utility/hash
+struct Hash{
+    std::size_t operator()(int salt, std::string password) const noexcept{
+        std::size_t h1 = std::hash<int>{}(salt);
+        std::size_t h2 = std::hash<std::string>{}(password);
+        return h1 ^ (h2 << 1); // bit-shift then XOR
+    }
+};
+
+void User::set_password(const std::string& new_password){   
+    // Proof of concept for hashing passwords and not storing plaintext
+    // THIS IS NOT A SECURE HASH DO NOT USE THIS FOR SECURITY PURPOSES
+    // https://en.cppreference.com/w/cpp/utility/hash
+    password = Hash{}(salt,new_password);
 }
 
 // Saves User info as string vector for saving in database

@@ -19,10 +19,28 @@ target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/inter
 #target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/src/entities")
 
 #Add subdirectories
-add_subdirectory(submit_assignment/submit_assignment)
+add_subdirectory(entities)
+
+
+# Add the library adapters
 add_subdirectory(plugin_glue/grader)
 add_subdirectory(plugin_glue/database)
-add_subdirectory(entities)
+add_subdirectory(plugin_glue/authenticator)
+
+# Add the use case groups
+add_subdirectory(submit_assignment)
+add_subdirectory(log_in_out)
+add_subdirectory(create_delete_assignment)
+add_subdirectory(create_delete_user)
+add_subdirectory(grade_report)
+
+# Add the user interface
+add_subdirectory(console_interface)
+
+
+#The following two lines print all the source files compiled by the target
+#get_target_property(v BeetCode SOURCES)
+#message(${v})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
