@@ -34,8 +34,16 @@ void Submission::set_grade(int new_grade) {
   
 }
 
-std::string Submission::get_name() {
+std::string Submission::get_student_name() {
   return student_name;
+}
+
+std::string Submission::get_sub_name() {
+  return sub_name;
+}
+
+std::string Submission::set_sub_name(const std::string& name){
+  sub_name = name;
 }
 
 std::string Submission::get_program() {

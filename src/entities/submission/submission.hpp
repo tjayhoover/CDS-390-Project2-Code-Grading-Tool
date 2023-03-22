@@ -34,14 +34,17 @@ class Submission {
     std::vector<std::string> save();
     
     void set_grade(int grade);
+    std::string set_sub_name(const std::string& name);
     
-    std::string get_name();
+    std::string get_student_name();
     std::string get_program();
+    std::string get_sub_name();
     int get_grade();
     boost::posix_time::ptime get_submission_time();
    
     private:
     
+    std::string sub_name;
     std::string student_name;
     std::string program;
     

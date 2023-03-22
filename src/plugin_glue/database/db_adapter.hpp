@@ -7,24 +7,25 @@
 
 #include <string>
 #include <vector>
+#include <unordered_map>
 
-//#include "../database.hpp"
+#include "database.hpp"
 
 #include "../../../src/entities/user/user.hpp"
 #include "../../../src/entities/assignment/assignment.hpp"
 #include "../../../src/entities/submission/submission.hpp"
 
-class DB_adapter {
+class DB_adapter : public AbstractDatabase {
     
   public:
 
-  DB_adapter() = default;
-  ~DB_adapter() = default;
+  DB_adapter(bauer_DB* db);
+  ~DB_adapter();
 
   // Adds to database
-  std::string add_user(User& user);
-  std::string add_assignment(Assignment& assignment);
-  std::string add_submission(Submission& submission);
+  void add_user(User user);
+  void add_assignment(Assignment assignment);
+  void add_submission(Submission submission);
 
   // Removes from database
   void del_user(const std::string& ID);
@@ -48,11 +49,14 @@ class DB_adapter {
 
   private:
 
-  // create y DB object and use it
-  // "cache"
-  // etc
-
-
+  bauer_DB db;
+  
+  // user.get_username()
+  // assignment.get_name()
+  // submission.get_sub_name()
+  std::unordered_map<std:: string,Assignment> assignments;
+  std::unordered_map<std:: string,User> users;
+  std::unordered_map<std:: string,Submission> submissions;
 
 };
 

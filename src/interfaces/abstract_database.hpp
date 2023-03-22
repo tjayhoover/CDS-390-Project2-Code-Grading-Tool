@@ -17,9 +17,9 @@ class AbstractDatabase {
 public:
 
   // Adds to database
-  virtual std::string add_user(User& user) = 0;
-  virtual std::string add_assignment(Assignment& assignment) = 0;
-  virtual std::string add_submission(Submission& submission) = 0;
+  virtual void add_user(User user) = 0;
+  virtual void add_assignment(Assignment assignment) = 0;
+  virtual void add_submission(Submission submission) = 0;
 
   // Removes from database
   virtual void del_user(const std::string& ID) = 0;
