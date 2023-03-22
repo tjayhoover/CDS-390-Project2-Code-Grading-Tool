@@ -12,9 +12,9 @@ void ConsoleUserInterface::log_out() {
 }
 
 char ConsoleUserInterface::get_response() {
-    char c;
-    cin >> c;
-    return c;
+    string c;
+    getline(cin, c);
+    return tolower(c.front());
 }
 
 ConsoleUserInterface::ConsoleUserInterface(LogInOutController lc, SubmissionController sc, ReportController rc, UserController uc, AssignmentController ac)
@@ -106,13 +106,13 @@ void ConsoleUserInterface::run() {
             cout << "Welcome to Beetcode!" << endl;
             cout << main_menu << endl;
             string response;
-            cin >> response;
-            if(tolower(response[0]) == 'a') {
+            getline(cin, response);
+            if(tolower(response.front()) == 'a') {
                 pair<bool, User> user_data = log_in_out_controller.start_login_process();
                 user = user_data.second;
                 logged_in = user_data.first;
             }
-            else if(tolower(response[0] == 'b')) {
+            else if(tolower(response.front() == 'b')) {
                 break;
             }
         }

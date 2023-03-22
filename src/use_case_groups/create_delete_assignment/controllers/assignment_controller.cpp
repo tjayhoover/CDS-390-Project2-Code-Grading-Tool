@@ -22,28 +22,29 @@ void AssignmentController::create_assignment() {
     cout << "Type the name of your assignment:" << endl;
 
     string assignment_name;
-    cin >> assignment_name;
+    getline(cin, assignment_name);
 
-    cout << "Type the description of your assignment:" << endl;
+    cout << "Type the description of your assignment on one line:" << endl;
 
     string description;
-    cin >> description;
+    
+    getline(cin, description);
 
     // Make sure this formatting works
     cout << "Type the due date of your assignment in this format: (YYYY-MM-DD hh:mm:ss)" << endl;
 
     string date_string;
-    cin >> date_string;
+    getline(cin, date_string);
 
     cout << "Type the absolute path to the folder containing the input files:" << endl;
 
     string input_files_path;
-    cin >> input_files_path;
+    getline(cin, input_files_path);
 
     cout << "Type the absolute path to the folder containing the output files:" << endl;
 
     string output_files_path;
-    cin >> output_files_path;
+    getline(cin, output_files_path);
 
     vector<string> input_strings;
     vector<string> output_strings;
