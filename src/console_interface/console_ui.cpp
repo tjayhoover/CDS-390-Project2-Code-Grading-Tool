@@ -116,7 +116,6 @@ void ConsoleUserInterface::run() {
                 break;
             }
         }
-        
     }
     cout << "Thanks for using Beetcode!" << endl;
 }
