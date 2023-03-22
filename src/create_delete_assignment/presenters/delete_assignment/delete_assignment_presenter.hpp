@@ -16,7 +16,7 @@ public:
     }
 
 private:
-    ViewInterface* view;
+    std::unique_ptr<ViewInterface> view;
 };
 
 #endif

@@ -1,5 +1,5 @@
-#ifndef DELETE_ASSIGNMENT_VIEW_HPP
-#define DELETE_ASSIGNMENT_VIEW_HPP
+#ifndef CREATE_ASSIGNMENT_VIEW_HPP
+#define CREATE_ASSIGNMENT_VIEW_HPP
 
 #include "../../presenters/create_assignment/view_interface.hpp"
 
