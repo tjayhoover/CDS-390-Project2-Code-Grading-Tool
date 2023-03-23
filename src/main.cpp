@@ -59,8 +59,21 @@ int main(int, char**) {
 
     // Create the database, grader, authenticator, and user interface
     unique_ptr<Grader> g = make_unique<Grader>();
-    unique_ptr<DB_adapter> db = make_unique<DB_adapter>();
+    
     unique_ptr<Authenticator> auth = make_unique<Authenticator>();
+
+    unique_ptr<DB_adapter> db;
+
+    // Try creating the database. If there is an error, catch it and print
+    // the error to the console.
+    try {
+        db = make_unique<DB_adapter>();
+    } catch(exception e) {
+        std::cout << e.what() << std::endl;
+        std::cout << "If you do not care about your data, deleting the " <<
+                    "_database directory under build/src should fix the issue." << endl;
+        return 1;
+    }
 
     // If it doesn't exist, add the default admin to the database
     if(!db->exists("admin")) {
