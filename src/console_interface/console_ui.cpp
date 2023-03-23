@@ -43,7 +43,7 @@ void ConsoleUserInterface::run() {
 
                 // Change password
                 else if(response == 'c') {
-                    user_controller.change_password(this->user.get_username());
+                    user_controller.change_password(user.get_username());
                 }
 
                 // log out option
@@ -72,7 +72,7 @@ void ConsoleUserInterface::run() {
 
                 // Change password
                 else if(response == 'c') {
-                    user_controller.change_password(this->user.get_username());
+                    user_controller.change_password(user.get_username());
                 }
 
                 // Log out
@@ -91,7 +91,7 @@ void ConsoleUserInterface::run() {
 
                 // View Grades option
                 if(response == 'a') {
-                    cout << "You chose a!" << endl;
+                    report_controller.get_student_report(user.get_username());
                 }
 
                 // View Assignments option
@@ -101,12 +101,12 @@ void ConsoleUserInterface::run() {
 
                 // Submit assignment option
                 else if(response == 'c'){
-                    submission_controller.start_submission(this->user.get_username());
+                    submission_controller.start_submission(user.get_username());
                 }
 
                 // Change password
                 else if(response == 'd') {
-                    user_controller.change_password(this->user.get_username());
+                    user_controller.change_password(user.get_username());
                 }
 
                 // Log out option

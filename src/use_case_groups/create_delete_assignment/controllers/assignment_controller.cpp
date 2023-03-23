@@ -22,6 +22,10 @@ void AssignmentController::create_assignment() {
     cout << "Type the name of your assignment:" << endl;
 
     string assignment_name;
+
+    // bad hotfix
+    string newline;
+    getline(cin, newline);
     getline(cin, assignment_name);
 
     cout << "Type the description of your assignment on one line:" << endl;

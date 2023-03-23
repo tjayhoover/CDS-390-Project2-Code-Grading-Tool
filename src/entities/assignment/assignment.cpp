@@ -80,6 +80,9 @@ void Assignment::set_deadline(boost::posix_time::ptime new_deadline) {
   deadline = new_deadline;
 }
 
+std::vector<std::string> Assignment::get_submissions() {
+  return submissions;
+}
 
 std::string Assignment::get_name() {
   return name;
@@ -97,7 +100,7 @@ int Assignment::get_max_grade(){
   return max_grade;
 }
 
-void Assignment::submit_work(const std::string& sub_name){
+void Assignment::add_submission(const std::string& sub_name){
   submissions.push_back(sub_name);
 }
 

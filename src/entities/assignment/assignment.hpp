@@ -25,7 +25,7 @@ class Assignment {
     
     std::vector<std::string> save();
 
-    void submit_work(const std::string& sub_name);
+    void add_submission(const std::string& sub_name);
 
     // Helper function to grade work once its submitted, used in submit_work
     //int grade_work();
@@ -56,7 +56,7 @@ class Assignment {
     std::string name;
     std::string description;
     boost::posix_time::ptime deadline;
-    int max_grade;
+    int max_grade = 0;
     
     // Contains a list of submission IDs.
     std::vector<std::string> submissions;

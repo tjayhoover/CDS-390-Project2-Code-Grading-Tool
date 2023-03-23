@@ -14,13 +14,14 @@ void SubmissionInteractor::submit_assignment(submission_request sub) {
     // First check if the assignment exists:
     bool assignment_found = storage->exists(sub.assignment_name);
 
+    // If the assignment does not exist, quit
     if(!assignment_found) {
         data.success = false;
         presenter->presentResult(data);
         return;
     }
 
-    // The assignment exitst, so get the assigment corresponding to this submission:
+    // The assignment exists, so get the assigment corresponding to this submission:
     Assignment assignment = storage->get_assignment(sub.assignment_name);
 
     std::string submission_name = sub.assignment_name + sub.student_name + std::to_string(assignment.get_num_submissions());
@@ -42,8 +43,16 @@ void SubmissionInteractor::submit_assignment(submission_request sub) {
         }
     }
 
+    // Set the submission grade
     submission.set_grade(num_passed);
 
+    // Add the submission name to the assignment
+    assignment.add_submission(submission_name);
+
+    // Add the updated assignment back to the database
+    storage->add_assignment(assignment);
+
+    // Add the submission to the database
     storage->add_submission(submission);
 
     // Compile the output data
