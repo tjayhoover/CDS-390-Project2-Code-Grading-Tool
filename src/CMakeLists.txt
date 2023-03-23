@@ -34,6 +34,7 @@ add_subdirectory(use_case_groups/log_in_out)
 add_subdirectory(use_case_groups/create_delete_assignment)
 add_subdirectory(use_case_groups/create_delete_user)
 add_subdirectory(use_case_groups/grade_report)
+add_subdirectory(use_case_groups/view_assignments)
 
 # Add the user interface
 add_subdirectory(console_interface)

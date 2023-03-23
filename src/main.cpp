@@ -58,6 +58,12 @@
 #include "use_case_groups/grade_report/views/instructor/instructor_report_view.hpp"
 #include "use_case_groups/grade_report/views/student/student_report_view.hpp"
 
+// Include the relevant bits for the student view assignments use case
+#include "use_case_groups/view_assignments/controllers/view_assignments_controller.hpp"
+#include "use_case_groups/view_assignments/interactors/student/student_view_assignments.hpp"
+#include "use_case_groups/view_assignments/presenters/student/student_assignments_presenter.hpp"
+#include "use_case_groups/view_assignments/views/student/student_assignments_view.hpp"
+
 using namespace std;
 
 int main(int, char**) {
@@ -137,9 +143,14 @@ int main(int, char**) {
     DeleteAssignmentInteractor da_interactor = DeleteAssignmentInteractor(db.get(), auth.get(), da_presenter.get());
     AssignmentController assignment_controller = AssignmentController(ca_interactor, da_interactor);
 
+    // View assignments use cases
+    unique_ptr<StudentAssignmentsPresenter> sva_presenter = make_unique<StudentAssignmentsPresenter>();
+    sva_presenter->setView<StudentAssignmentsView>();
+    StudentViewAssignmentsInteractor sva_interactor = StudentViewAssignmentsInteractor(db.get(), sva_presenter.get());
+    ViewAssignmentsController view_assignments_controller = ViewAssignmentsController(sva_interactor);
 
     // Create the UI and hand it the use case controllers
-    ConsoleUserInterface ui(log_in_out_controller, sub_controller, report_controller, user_controller, assignment_controller);
+    ConsoleUserInterface ui(log_in_out_controller, sub_controller, report_controller, user_controller, assignment_controller, view_assignments_controller);
 
     // Start the event loop
     ui.run();

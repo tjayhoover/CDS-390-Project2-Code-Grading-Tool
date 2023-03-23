@@ -18,8 +18,8 @@ char ConsoleUserInterface::get_response() {
     return tolower(c.front());
 }
 
-ConsoleUserInterface::ConsoleUserInterface(LogInOutController lc, SubmissionController sc, ReportController rc, UserController uc, AssignmentController ac)
-    : log_in_out_controller(lc), submission_controller(sc), report_controller(rc), user_controller(uc), assignment_controller(ac), user(PermissionLevel::Null, "") 
+ConsoleUserInterface::ConsoleUserInterface(LogInOutController lc, SubmissionController sc, ReportController rc, UserController uc, AssignmentController ac, ViewAssignmentsController vac)
+    : log_in_out_controller(lc), submission_controller(sc), report_controller(rc), user_controller(uc), assignment_controller(ac), view_assignments_controller(vac), user(PermissionLevel::Null, "") 
     {}
 
 void ConsoleUserInterface::run() {
@@ -94,23 +94,28 @@ void ConsoleUserInterface::run() {
                     cout << "You chose a!" << endl;
                 }
 
+                // View Assignments option
+                else if(response == 'b') {
+                    view_assignments_controller.student_view_assignments();
+                }
+
                 // Submit assignment option
-                else if(response == 'b'){
+                else if(response == 'c'){
                     submission_controller.start_submission(this->user.get_username());
                 }
 
                 // Change password
-                else if(response == 'c') {
+                else if(response == 'd') {
                     user_controller.change_password(this->user.get_username());
                 }
 
                 // Log out option
-                else if(response == 'd') {
+                else if(response == 'e') {
                     this->log_out();
                 }
 
                 // Quit option
-                else if(response == 'e') {
+                else if(response == 'f') {
                     break;
                 }
             }
