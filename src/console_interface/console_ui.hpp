@@ -34,9 +34,9 @@ private:
 
     // Menu strings
     const std::string main_menu = "(a) Log in\n(b) Quit";
-    const std::string student_menu = "(a) View Grades\n(b) Submit Assignment\n(c) Log Out\n(d) Quit";
-    const std::string instructor_menu = "(a) View Grade Report\n(b)Upload Assignment\n(c) Log Out\n(d) Quit";
-    const std::string admin_menu = "(a) Add User\n(b) Delete User\n(c) Log Out\n(d) Quit";
+    const std::string student_menu = "(a) View Grades\n(b) Submit Assignment\n(c) Change Password\n(d) Log Out\n(e) Quit";
+    const std::string instructor_menu = "(a) View Grade Report\n(b) Upload Assignment\n(c) Change Password\n(d) Log Out\n(e) Quit";
+    const std::string admin_menu = "(a) Add User\n(b) Delete User\n(c) Change Password\n(d) Log Out\n(e) Quit";
 };
 
 #endif

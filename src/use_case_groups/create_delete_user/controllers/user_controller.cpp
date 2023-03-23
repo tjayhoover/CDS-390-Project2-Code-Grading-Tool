@@ -5,8 +5,8 @@
 
 using namespace std;
 
-UserController::UserController(CreateUserInteractor ci, DeleteUserInteractor di) :
-    create_user_interactor(ci), delete_user_interactor(di) {}
+UserController::UserController(CreateUserInteractor ci, DeleteUserInteractor di, ChangePasswordInteractor cpi) :
+    create_user_interactor(ci), delete_user_interactor(di), change_password_interactor(cpi) {}
 
 void UserController::create_user() {
 
@@ -45,4 +45,27 @@ void UserController::delete_user() {
     
 
     delete_user_interactor.deleteUser(request);
+}
+
+void UserController::change_password(string username) {
+
+    // Initialize the request model object
+    change_password_request request;
+
+    cout << "Please type your new password: " << endl;
+    string new_password;
+    cin >> new_password;
+
+    cout << "Please type it again:" << endl;
+    string new_password_copy;
+    cin >> new_password_copy;
+
+    if(new_password == new_password_copy) {
+        request.username = username;
+        request.new_password = new_password;
+
+        // Hand off the request to the interactor
+        change_password_interactor.change_password(request);
+    }
+    else cout << "The passwords did not match. Try again." << endl;
 }

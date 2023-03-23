@@ -16,6 +16,9 @@ std::pair<bool, User> LoginInteractor::log_in(login_request data) {
     // Check if the user exists
     if(storage->exists(data.username)) {
         user = storage->get_user(data.username);
+
+        // Authentication needs to be implemented
+        
         success = true;
         return_data.name = user.get_username();
         return_data.role = user.get_permission();

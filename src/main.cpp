@@ -30,10 +30,15 @@
 #include "use_case_groups/create_delete_user/controllers/user_controller.hpp"
 #include "use_case_groups/create_delete_user/interactors/create_user/create_user.hpp"
 #include "use_case_groups/create_delete_user/interactors/delete_user/delete_user.hpp"
+#include "use_case_groups/create_delete_user/interactors/change_password/change_password.hpp"
+
 #include "use_case_groups/create_delete_user/presenters/create_user/create_user_presenter.hpp"
 #include "use_case_groups/create_delete_user/presenters/delete_user/delete_user_presenter.hpp"
+#include "use_case_groups/create_delete_user/presenters/change_password/change_password_presenter.hpp"
+
 #include "use_case_groups/create_delete_user/views/create_user/create_user_view.hpp"
 #include "use_case_groups/create_delete_user/views/delete_user/delete_user_view.hpp"
+#include "use_case_groups/create_delete_user/views/change_password/change_password_view.hpp"
 
 // Include the relevant bits for the create/delete assignment use cases
 #include "use_case_groups/create_delete_assignment/controllers/assignment_controller.hpp"
@@ -113,11 +118,14 @@ int main(int, char**) {
     // Add and delete user use cases
     unique_ptr<CreateUserPresenter> cu_presenter = make_unique<CreateUserPresenter>();
     unique_ptr<DeleteUserPresenter> du_presenter = make_unique<DeleteUserPresenter>();
+    unique_ptr<ChangePasswordPresenter> cp_presenter = make_unique<ChangePasswordPresenter>();
     cu_presenter->setView<CreateUserView>();
     du_presenter->setView<DeleteUserView>();
+    cp_presenter->setView<ChangePasswordView>();
     CreateUserInteractor cu_interactor = CreateUserInteractor(db.get(), auth.get(), cu_presenter.get());
     DeleteUserInteractor du_interactor = DeleteUserInteractor(db.get(), auth.get(), du_presenter.get());
-    UserController user_controller = UserController(cu_interactor, du_interactor);
+    ChangePasswordInteractor cp_interactor = ChangePasswordInteractor(db.get(), auth.get(), cp_presenter.get());
+    UserController user_controller = UserController(cu_interactor, du_interactor, cp_interactor);
 
 
     // Add and delete assignment use cases

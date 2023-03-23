@@ -11,9 +11,10 @@ void ConsoleUserInterface::log_out() {
     cout << "You have successfully logged out." << endl;
 }
 
+// Get a one character response from the user
 char ConsoleUserInterface::get_response() {
     string c;
-    getline(cin, c);
+    cin >> c;
     return tolower(c.front());
 }
 
@@ -40,13 +41,18 @@ void ConsoleUserInterface::run() {
                     cout << "You chose b!" << endl;
                 }
 
-                // log out option
+                // Change password
                 else if(response == 'c') {
+                    user_controller.change_password(this->user.get_username());
+                }
+
+                // log out option
+                else if(response == 'd') {
                     this->log_out();
                 }
 
                 // quit
-                else if(response == 'd') {
+                else if(response == 'e') {
                     break;
                 }
             }
@@ -64,13 +70,18 @@ void ConsoleUserInterface::run() {
                     assignment_controller.create_assignment();
                 }
 
-                // Log out
+                // Change password
                 else if(response == 'c') {
+                    user_controller.change_password(this->user.get_username());
+                }
+
+                // Log out
+                else if(response == 'd') {
                     this->log_out();
                 }
 
                 // Quit
-                else if(response == 'd') {
+                else if(response == 'e') {
                     break;
                 }
             }
@@ -88,13 +99,18 @@ void ConsoleUserInterface::run() {
                     submission_controller.start_submission(this->user.get_username());
                 }
 
-                // Log out option
+                // Change password
                 else if(response == 'c') {
+                    user_controller.change_password(this->user.get_username());
+                }
+
+                // Log out option
+                else if(response == 'd') {
                     this->log_out();
                 }
 
                 // Quit option
-                else if(response == 'd') {
+                else if(response == 'e') {
                     break;
                 }
             }
@@ -102,17 +118,16 @@ void ConsoleUserInterface::run() {
         }
 
         // If nobody is logged in, do this
-        else{
+        else {
             cout << "Welcome to Beetcode!" << endl;
             cout << main_menu << endl;
-            string response;
-            getline(cin, response);
-            if(tolower(response.front()) == 'a') {
+            char response = get_response();
+            if(response == 'a') {
                 pair<bool, User> user_data = log_in_out_controller.start_login_process();
                 user = user_data.second;
                 logged_in = user_data.first;
             }
-            else if(tolower(response.front() == 'b')) {
+            else if(tolower(response == 'b')) {
                 break;
             }
         }

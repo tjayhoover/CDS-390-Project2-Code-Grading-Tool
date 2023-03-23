@@ -12,3 +12,8 @@ add_subdirectory(presenters/create_user)
 add_subdirectory(interactors/delete_user)
 add_subdirectory(views/delete_user)
 add_subdirectory(presenters/delete_user)
+
+# Add the change password use case
+add_subdirectory(interactors/change_password)
+add_subdirectory(presenters/change_password)
+add_subdirectory(views/change_password)
