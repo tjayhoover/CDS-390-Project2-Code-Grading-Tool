@@ -70,18 +70,23 @@ void ConsoleUserInterface::run() {
                     assignment_controller.create_assignment();
                 }
 
-                // Change password
+                // Delete Assignment option
                 else if(response == 'c') {
+                    assignment_controller.delete_assignment();
+                }
+
+                // Change password
+                else if(response == 'd') {
                     user_controller.change_password(user.get_username());
                 }
 
                 // Log out
-                else if(response == 'd') {
+                else if(response == 'e') {
                     this->log_out();
                 }
 
                 // Quit
-                else if(response == 'e') {
+                else if(response == 'f') {
                     break;
                 }
             }
