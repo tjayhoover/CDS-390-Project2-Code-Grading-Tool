@@ -9,8 +9,8 @@ namespace fs = std::filesystem;
 using namespace std;
 
 std::pair<int,string> Authenticator::authenticate_user(const std::string& username, const std::string& password, int permission) {
-    string curr_dir = fs::current_path();
-    string temp_dir = fs::temp_directory_path();
+    auto curr_dir = fs::current_path();
+    auto temp_dir = fs::temp_directory_path();
     
     fs::current_path(temp_dir);
 
