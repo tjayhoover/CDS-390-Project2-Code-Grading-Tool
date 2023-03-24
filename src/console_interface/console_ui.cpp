@@ -220,7 +220,9 @@ void ConsoleUserInterface::run() {
 
                 // View Grades option
                 if(response == 'a') {
-                    report_controller.get_student_report(user.get_username());
+                    student_report_input input_data;
+                    input_data.studentname = user.get_username();
+                    report_controller.get_student_report(input_data);
                 }
 
                 // View Assignments option

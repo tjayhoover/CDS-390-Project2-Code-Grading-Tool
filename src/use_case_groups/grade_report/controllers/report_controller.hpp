@@ -12,7 +12,7 @@ public:
     ReportController(InstructorReportInteractor, StudentReportInteractor);
 
     void get_instructor_report(instructor_report_input);
-    void get_student_report(std::string);
+    void get_student_report(student_report_input);
 
 private:
     InstructorReportInteractor instructor_report_interactor;

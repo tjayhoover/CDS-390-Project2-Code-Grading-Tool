@@ -2,6 +2,8 @@
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 
+
+
 void InstructorReportPresenter::presentResult(instructor_report_response data) {
 
     ViewModel vm;
@@ -18,6 +20,9 @@ void InstructorReportPresenter::presentResult(instructor_report_response data) {
                     + "Submission Date: " + to_simple_string(data.submission_dates[i]) + "\n"
                     + "Cases Passed: " + std::to_string(data.cases_passed[i]) + "/" + std::to_string(data.total_cases) + "\n"
                     + "Grade: " + grade_percentage_str + "%\n");
+        if(!data.on_time[i]) {
+            vm.output += "This submission was " + data.durations_late[i] + " hours late.\n\n";
+        }
     }
 
     if(data.student_names.size() == 0) {

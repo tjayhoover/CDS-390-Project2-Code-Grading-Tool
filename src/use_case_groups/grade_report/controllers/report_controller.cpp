@@ -18,11 +18,13 @@ void ReportController::get_instructor_report(instructor_report_input input_data)
     instructor_report_interactor.compileReport(request);
 }
 
-void ReportController::get_student_report(std::string name) {
+void ReportController::get_student_report(student_report_input input_data) {
 
     // Initialize the request object
     student_report_request request;
-    request.username = name;
+    request.username = input_data.studentname;
+
+    cout << request.username << endl;
 
     // Hand the request to the interactor
     student_report_interactor.compileReport(request);

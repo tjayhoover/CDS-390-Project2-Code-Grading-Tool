@@ -10,7 +10,10 @@ void SubmissionPresenter::presentResult(submission_response data) {
     // Put the data in the view model
     ViewModel vm;
     if(data.success) {
-        vm.output = "You passed " + std::to_string(data.num_passed)
+        if(!data.on_time) {
+            vm.output += ("Late submission! The project was due " + data.duration_late + " hours ago.\n");
+        }
+        vm.output += "You passed " + std::to_string(data.num_passed)
                     + "/" + std::to_string(data.num_cases) + " test cases.";
     }
     else {

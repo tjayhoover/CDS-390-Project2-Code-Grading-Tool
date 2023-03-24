@@ -1,5 +1,6 @@
 #include "student_report.hpp"
 
+
 StudentReportInteractor::StudentReportInteractor(AbstractDatabase* d, AbstractAuthenticator* a, StudentReportPresenterInterface* p):
     storage(d), authenticator(a), presenter(p) {}
 
@@ -21,6 +22,16 @@ void StudentReportInteractor::compileReport(student_report_request data) {
                 response.total_cases.push_back(assignment.get_max_grade());
                 response.submission_dates.push_back(submission.get_submission_time());
                 response.due_dates.push_back(assignment.get_deadline());
+
+                // If the assignment was late, add some info
+                if(submission.get_submission_time() > assignment.get_deadline()) {
+                    response.on_time.push_back(false);
+                    response.durations_late.push_back(to_simple_string(submission.get_submission_time() - assignment.get_deadline()));
+                }
+                else {
+                    response.on_time.push_back(true);
+                    response.durations_late.push_back("");
+                }
             }
         }
     }

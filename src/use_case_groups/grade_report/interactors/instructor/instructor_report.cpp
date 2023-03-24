@@ -21,6 +21,14 @@ void InstructorReportInteractor::compileReport(instructor_report_request data) {
         response.student_names.push_back(submission.get_student_name());
         response.submission_dates.push_back(submission.get_submission_time());
         response.cases_passed.push_back(submission.get_grade());
+        if(submission.get_submission_time() > assignment.get_deadline()) {
+            response.on_time.push_back(false);
+            response.durations_late.push_back(to_simple_string(submission.get_submission_time() - assignment.get_deadline()));
+        }
+        else {
+            response.durations_late.push_back("");
+            response.on_time.push_back(true);
+        }
     }
     
     presenter->presentResult(response);

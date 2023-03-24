@@ -16,6 +16,8 @@ struct student_report_request {
 struct student_report_response {
     std::vector<std::string> assignment_names;
     std::vector<boost::posix_time::ptime> due_dates;
+    std::vector<bool> on_time;
+    std::vector<std::string> durations_late;
     std::vector<boost::posix_time::ptime> submission_dates;
     std::vector<int> cases_passed;
     std::vector<int> total_cases;

@@ -17,6 +17,10 @@ void StudentReportPresenter::presentResult(student_report_response data) {
                     + "Submission Date: " + to_simple_string(data.submission_dates[i]) + "\n"
                     + "Cases Passed: " + std::to_string(data.cases_passed[i]) + "/" + std::to_string(data.total_cases[i]) + "\n"
                     + "Grade: " + grade_percentage_str + "%\n");
+        if(!data.on_time[i]) {
+            vm.output += "You submitted this assignment " + data.durations_late[i] + " hours late!\n";
+        }
+        vm.output += "\n";
     }
     
     view->display(vm);

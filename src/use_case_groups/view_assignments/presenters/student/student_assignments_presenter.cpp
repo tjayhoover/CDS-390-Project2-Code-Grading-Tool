@@ -8,7 +8,7 @@ void StudentAssignmentsPresenter::presentResult(student_view_assignments_respons
     for(int i = 0; i < data.names.size(); ++i) {
         vm.output += ("Assignment Name: " + data.names[i] + "\n"
                     + "Due: " + to_simple_string(data.due_dates[i]) + "\n"
-                    + "Description: " + data.descriptions[i] + "\n");
+                    + "Description: " + data.descriptions[i] + "\n\n");
     }
  
     view->display(vm);

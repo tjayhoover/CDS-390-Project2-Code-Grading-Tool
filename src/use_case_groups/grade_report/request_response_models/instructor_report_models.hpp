@@ -13,6 +13,8 @@ struct instructor_report_response {
     std::vector<std::string> student_names;
     std::vector<boost::posix_time::ptime> submission_dates;
     std::vector<int> cases_passed;
+    std::vector<bool> on_time;
+    std::vector<std::string> durations_late;
     int total_cases;
 };
 

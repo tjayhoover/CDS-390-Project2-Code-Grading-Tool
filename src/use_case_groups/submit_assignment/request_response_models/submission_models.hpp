@@ -16,6 +16,7 @@ struct submission_response {
     bool on_time;
     int num_cases;
     int num_passed;
+    std::string duration_late;
 };
 
 #endif

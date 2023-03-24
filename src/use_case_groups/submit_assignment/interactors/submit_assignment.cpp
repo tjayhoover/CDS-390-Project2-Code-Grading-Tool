@@ -49,6 +49,9 @@ void SubmissionInteractor::submit_assignment(submission_request sub) {
     // Check the deadline
     if(assignment.get_deadline() < sub.submission_time) {
         data.on_time = false;
+        auto late_by = (sub.submission_time - assignment.get_deadline());
+        auto duration_since_due = to_simple_string(late_by);
+        data.duration_late = duration_since_due;
     } else data.on_time = true;
 
     // Add the submission name to the assignment
