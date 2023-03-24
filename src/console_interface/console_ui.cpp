@@ -38,7 +38,7 @@ void ConsoleUserInterface::run() {
 
                 // Delete user option
                 else if(response == 'b'){
-                    cout << "You chose b!" << endl;
+                    user_controller.delete_user();
                 }
 
                 // Change password
@@ -62,7 +62,7 @@ void ConsoleUserInterface::run() {
 
                 // View Grade Report option
                 if(response == 'a') {
-                    cout << "You chose a!" << endl;
+                    cout << "You chose to view the grade report." << endl;
                 }
 
                 // Upload Assignment option

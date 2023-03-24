@@ -8,7 +8,8 @@ struct delete_user_request {
 };
 
 struct delete_user_response {
-    std::string message;
+    bool success;
+    std::string error;
 };
 
 #endif

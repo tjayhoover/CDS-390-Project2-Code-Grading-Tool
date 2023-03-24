@@ -41,9 +41,15 @@ void UserController::create_user() {
 
 void UserController::delete_user() {
 
-    delete_user_request request;
-    
+    cout << "Type the name of the user you want to delete:" << endl;
+    string username;
+    cin >> username;
 
+    // Create the request
+    delete_user_request request;
+    request.username = username;
+
+    // Hand the request to the interactor
     delete_user_interactor.deleteUser(request);
 }
 

@@ -46,6 +46,11 @@ void SubmissionInteractor::submit_assignment(submission_request sub) {
     // Set the submission grade
     submission.set_grade(num_passed);
 
+    // Check the deadline
+    if(assignment.get_deadline() < sub.submission_time) {
+        data.on_time = false;
+    } else data.on_time = true;
+
     // Add the submission name to the assignment
     assignment.add_submission(submission_name);
 

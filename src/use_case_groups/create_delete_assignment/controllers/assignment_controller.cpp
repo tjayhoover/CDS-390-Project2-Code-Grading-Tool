@@ -85,8 +85,11 @@ void AssignmentController::create_assignment() {
 
 void AssignmentController::delete_assignment() {
 
-    delete_assignment_request request;
-    
+    cout << "Type the name of the assignment you want to delete:" << endl;
+    string name;
+    getline(cin, name);
 
+    delete_assignment_request request;
+    request.assignment_name = name;
     delete_assignment_interactor.deleteAssignment(request);
 }

@@ -8,7 +8,8 @@ struct delete_assignment_request {
 };
 
 struct delete_assignment_response {
-    std::string message;
+    bool success;
+    std::string error;
 };
 
 #endif

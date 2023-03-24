@@ -13,6 +13,7 @@ struct submission_request {
 
 struct submission_response {
     bool success;
+    bool on_time;
     int num_cases;
     int num_passed;
 };
