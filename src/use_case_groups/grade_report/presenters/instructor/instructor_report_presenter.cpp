@@ -17,7 +17,7 @@ void InstructorReportPresenter::presentResult(instructor_report_response data) {
         vm.output += ("Student Name: " + data.student_names[i] + "\n"
                     + "Submission Date: " + to_simple_string(data.submission_dates[i]) + "\n"
                     + "Cases Passed: " + std::to_string(data.cases_passed[i]) + "/" + std::to_string(data.total_cases) + "\n"
-                    + "Grade: " + grade_percentage_str + "\n");
+                    + "Grade: " + grade_percentage_str + "%\n");
     }
 
     if(data.student_names.size() == 0) {

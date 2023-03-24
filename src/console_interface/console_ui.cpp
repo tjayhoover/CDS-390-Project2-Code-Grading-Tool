@@ -33,7 +33,7 @@ void ConsoleUserInterface::run() {
 
                 // Add user option
                 if(response == 'a') {
-                    cout << "Type the permission level of the new user:" << endl;
+                    cout << "Type the permission level of the new user (admin, instructor, or student):" << endl;
                     string permission_level;
                     cin >> permission_level;
                     
