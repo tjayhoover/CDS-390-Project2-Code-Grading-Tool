@@ -13,6 +13,7 @@ LogInOutController::LogInOutController(LoginInteractor li, LogoutInteractor lo) 
 std::pair<bool, User> LogInOutController::start_login_process(log_in_input input_data) {
 
     login_request data;
+
     data.username = input_data.username;
     data.password = input_data.password;
 

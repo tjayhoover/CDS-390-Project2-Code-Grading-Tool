@@ -22,20 +22,21 @@ std::pair<int,string> Authenticator::authenticate_user(const std::string& userna
 
     string permission_level;
     string token;
+    try{
+        if(ifs.is_open()){
+            string temp;
 
-    if(ifs.is_open()){
-        string temp;
-
-        ifs >> temp;
-        ifs >> temp;
-        ifs >> temp;
-        permission_level = temp.substr(1,1);
-        ifs >> temp;
-        ifs >> temp;
-        token = temp.substr(1,size(temp)-2);
+            ifs >> temp;
+            ifs >> temp;
+            ifs >> temp;
+            permission_level = temp.substr(1,1);
+            ifs >> temp;
+            ifs >> temp;
+            token = temp.substr(1,size(temp)-2);
+        }
     }
-    else{
-        throw std::runtime_error("authentication failed: json return not found");
+    catch (std::exception ex) {
+        throw std::runtime_error("Authentication failed: server return not found. Check if server is running.");
     }
     ifs.close();
 

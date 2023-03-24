@@ -32,10 +32,12 @@ class User {
     ~User() = default;
 
     std::string get_username() const;
-    int get_password() const;
-    int get_salt() const;
+    std::size_t get_password() const;
+    long long get_salt() const;
     PermissionLevel get_permission() const;
     void set_password(const std::string& new_password);
+
+    std::size_t hash_password(const std::string&);
 
     // save Function for database
     std::vector<std::string> save();
@@ -45,8 +47,8 @@ class User {
     // Listed at Top of file
     PermissionLevel permission;
     std::string username;
-    int password;
-    int salt;
+    long long password;
+    long long salt;
 };
 
 #endif

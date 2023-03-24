@@ -6,7 +6,7 @@
 
 // Constructor for initializing variables for building users from database
 User::User(std::vector<std::string> params): 
-permission((PermissionLevel)std::stoi(params[0])), username(params[1]), password(std::stoi(params[2])), salt(std::stoi(params[3])){}
+permission((PermissionLevel)std::stoll(params[0])), username(params[1]), password(std::stoll(params[2])), salt(std::stoi(params[3])){}
 
 // Constructor for creating new users with default password
 User::User(PermissionLevel level,const std::string& username):
@@ -18,11 +18,11 @@ std::string User::get_username() const{
     return username;
 }
 
-int User::get_password() const{
+std::size_t User::get_password() const{
     return password;
 }
 
-int User::get_salt() const{
+long long User::get_salt() const{
     return salt;
 }
 
@@ -41,6 +41,10 @@ struct Hash{
         return h1 ^ (h2 << 1); // bit-shift then XOR
     }
 };
+
+std::size_t User::hash_password(const std::string& password) {
+    return Hash{}(salt, password);
+}
 
 void User::set_password(const std::string& new_password){   
     // Proof of concept for hashing passwords and not storing plaintext
