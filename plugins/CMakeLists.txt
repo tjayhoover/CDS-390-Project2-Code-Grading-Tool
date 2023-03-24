@@ -4,6 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(database)
 add_subdirectory(python_grader)
+add_subdirectory(authentication)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

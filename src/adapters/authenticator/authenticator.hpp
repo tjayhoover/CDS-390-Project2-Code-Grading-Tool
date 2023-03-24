@@ -8,8 +8,7 @@
 class Authenticator: public AbstractAuthenticator {
 
 public:
-
-    std::string authenticate_user(const std::string& username, const std::string& password) override;
+    std::pair<int,std::string> authenticate_user(const std::string& username, const std::string& password, int permission) override;
 
 };
 
