@@ -136,7 +136,7 @@ void ConsoleUserInterface::run() {
                     getline(cin, description);
 
                     // Make sure this formatting works
-                    cout << "Type the due date of your assignment in this format: (YYYY-MM-DD hh:mm:ss)" << endl;
+                    cout << "Type the due date of your assignment in this format: (YYYY-MM-DD hh:mm:ss.sss)" << endl;
 
                     string date_string;
                     getline(cin, date_string);
