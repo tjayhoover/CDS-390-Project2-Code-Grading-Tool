@@ -10,24 +10,16 @@ using namespace std;
 LogInOutController::LogInOutController(LoginInteractor li, LogoutInteractor lo) :
     login_interactor(li), logout_interactor(lo){}
 
-std::pair<bool, User> LogInOutController::start_login_process() {
-
-    cout << "Please type in your username:" << endl;
-    string username;
-    cin >> username;
-    cout << "Please type in your password:" << endl;
-    string password;
-    cin >> password;
+std::pair<bool, User> LogInOutController::start_login_process(log_in_input input_data) {
 
     login_request data;
-    data.username = username;
-    data.password = password;
+    data.username = input_data.username;
+    data.password = input_data.password;
 
     // Use case activated!
     return login_interactor.log_in(data);
 }
 
 void LogInOutController::start_logout_process() {
-
 
 }

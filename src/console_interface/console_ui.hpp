@@ -1,13 +1,24 @@
 #ifndef CONSOLE_UI_HPP
 #define CONSOLE_UI_HPP
 
+// This should not be included
 #include "../entities/user/user.hpp"
+
+// Include the use case controllers (direct control flow dependency)
 #include "../use_case_groups/log_in_out/controllers/log_in_out_controller.hpp"
 #include "../use_case_groups/submit_assignment/controllers/submission_controller.hpp"
 #include "../use_case_groups/create_delete_assignment/controllers/assignment_controller.hpp"
 #include "../use_case_groups/create_delete_user/controllers/user_controller.hpp"
 #include "../use_case_groups/grade_report/controllers/report_controller.hpp"
 #include "../use_case_groups/view_assignments/controllers/view_assignments_controller.hpp"
+
+// Include the input data structs
+#include "../use_case_groups/log_in_out/controllers/input_request_models.hpp"
+#include "../use_case_groups/submit_assignment/controllers/input_request_models.hpp"
+#include "../use_case_groups/create_delete_assignment/controllers/input_request_models.hpp"
+#include "../use_case_groups/create_delete_user/controllers/input_request_models.hpp"
+#include "../use_case_groups/grade_report/controllers/input_request_models.hpp"
+#include "../use_case_groups/view_assignments/controllers/input_request_models.hpp"
 
 #include <string>
 

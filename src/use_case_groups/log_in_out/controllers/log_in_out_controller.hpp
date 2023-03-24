@@ -4,12 +4,14 @@
 #include "../interactors/log_in/log_in.hpp"
 #include "../interactors/log_out/log_out.hpp"
 
+#include "input_request_models.hpp"
+
 class LogInOutController {
 
 public:
     LogInOutController(LoginInteractor, LogoutInteractor);
 
-    std::pair<bool, User> start_login_process();
+    std::pair<bool, User> start_login_process(log_in_input);
     void start_logout_process();
 
 private:

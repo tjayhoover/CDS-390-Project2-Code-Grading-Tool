@@ -4,6 +4,7 @@
 #include "../interactors/create_user/create_user.hpp"
 #include "../interactors/delete_user/delete_user.hpp"
 #include "../interactors/change_password/change_password.hpp"
+#include "input_request_models.hpp"
 
 #include <string>
 
@@ -11,9 +12,9 @@ class UserController {
 public:
     UserController(CreateUserInteractor, DeleteUserInteractor, ChangePasswordInteractor);
 
-    void create_user();
-    void delete_user();
-    void change_password(std::string);
+    void create_user(create_user_input);
+    void delete_user(delete_user_input);
+    void change_password(change_password_input);
 
 private:
     CreateUserInteractor create_user_interactor;

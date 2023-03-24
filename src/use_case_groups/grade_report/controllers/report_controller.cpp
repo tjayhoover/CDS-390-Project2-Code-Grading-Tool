@@ -7,20 +7,13 @@ using namespace std;
 ReportController::ReportController(InstructorReportInteractor iri, StudentReportInteractor sri) :
     instructor_report_interactor(iri), student_report_interactor(sri) {}
 
-void ReportController::get_instructor_report() {
+void ReportController::get_instructor_report(instructor_report_input input_data) {
 
     // Initialize the request
     instructor_report_request request;
 
-    cout << "Type the name of the assignment you want a report for:" << endl;
-    string name;
-    
-    // Hotfix I don't like
-    string newline;
-    getline(cin, newline);
-    getline(cin, name);
-
-    request.assignment_name = name;
+    // Get data from input and use it to fill request
+    request.assignment_name = input_data.assignmentname;
 
     instructor_report_interactor.compileReport(request);
 }

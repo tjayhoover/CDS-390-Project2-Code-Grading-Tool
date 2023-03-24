@@ -14,47 +14,16 @@ AssignmentController::AssignmentController(CreateAssignmentInteractor ci, Delete
 
 
 // Write validation for all the input data sometime
-void AssignmentController::create_assignment() {
+void AssignmentController::create_assignment(create_assignment_input input_data) {
 
     // Initialize the request struct
     create_assignment_request request;
-
-    cout << "Type the name of your assignment:" << endl;
-
-    string assignment_name;
-
-    // bad hotfix
-    string newline;
-    getline(cin, newline);
-    getline(cin, assignment_name);
-
-    cout << "Type the description of your assignment on one line:" << endl;
-
-    string description;
-    
-    getline(cin, description);
-
-    // Make sure this formatting works
-    cout << "Type the due date of your assignment in this format: (YYYY-MM-DD hh:mm:ss)" << endl;
-
-    string date_string;
-    getline(cin, date_string);
-
-    cout << "Type the absolute path to the folder containing the input files:" << endl;
-
-    string input_files_path;
-    getline(cin, input_files_path);
-
-    cout << "Type the absolute path to the folder containing the output files:" << endl;
-
-    string output_files_path;
-    getline(cin, output_files_path);
 
     vector<string> input_strings;
     vector<string> output_strings;
     
     // Loop through input files directory and grab the input files as strings
-    for(const auto& entry: std::filesystem::directory_iterator(input_files_path)) {
+    for(const auto& entry: std::filesystem::directory_iterator(input_data.input_files_path)) {
         if(entry.is_regular_file()) {
             fstream strm(entry.path());
             std::stringstream buffer;
@@ -64,7 +33,7 @@ void AssignmentController::create_assignment() {
     }
 
     // Loop through the output files directory and grab the output files as strings
-    for(const auto& entry: std::filesystem::directory_iterator(output_files_path)) {
+    for(const auto& entry: std::filesystem::directory_iterator(input_data.output_files_path)) {
         if(entry.is_regular_file()) {
             fstream strm(entry.path());
             std::stringstream buffer;
@@ -74,26 +43,17 @@ void AssignmentController::create_assignment() {
     }
 
     // Put the data into the request model object
-    request.assignment_name = assignment_name;
-    request.description = description;
-    request.due_date = boost::posix_time::time_from_string(date_string);
+    request.assignment_name = input_data.name;
+    request.description = input_data.description;
+    request.due_date = boost::posix_time::time_from_string(input_data.due_date);
     request.input_files = input_strings;
     request.output_files = output_strings;
 
     create_assignment_interactor.createAssignment(request);
 }
 
-void AssignmentController::delete_assignment() {
-
-    cout << "Type the name of the assignment you want to delete:" << endl;
-    string name;
-
-    // Hot fix that I don't like
-    string newline;
-    getline(cin, newline);
-    getline(cin, name);
-
+void AssignmentController::delete_assignment(delete_assignment_input input_data) {
     delete_assignment_request request;
-    request.assignment_name = name;
+    request.assignment_name = input_data.assignment_name;
     delete_assignment_interactor.deleteAssignment(request);
 }

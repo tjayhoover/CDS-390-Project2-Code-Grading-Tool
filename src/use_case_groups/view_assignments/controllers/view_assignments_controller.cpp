@@ -3,7 +3,7 @@
 ViewAssignmentsController::ViewAssignmentsController(StudentViewAssignmentsInteractor svi) :
     student_view_assignments_interactor(svi) {}
 
-void ViewAssignmentsController::student_view_assignments() {
+void ViewAssignmentsController::student_view_assignments(student_view_assignments_input input_data) {
 
     // Initialize request model object
     student_view_assignments_request request;

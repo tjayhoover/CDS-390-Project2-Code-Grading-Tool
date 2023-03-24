@@ -16,41 +16,29 @@ using namespace std;
 SubmissionController::SubmissionController(SubmissionInteractor s) :
     submission_interactor(s) {}
 
-void SubmissionController::start_submission(string student_name) {
-    // Request assignment name from the user
-    cout << "Enter the name of the assignment" << endl;
-    string assignment_name;
+void SubmissionController::start_submission(submit_assignment_input input_data) {
+    
+    string source_code;
 
-    // Recieve name
-    cin >> assignment_name;
-
-    // Prompt for path
-    cout << "Enter the full path of the file containing your code:" << endl;
-    string path;
-
-    // Receive the data
-    cin >> path;
-
-    string source_code = "";
-
-    if(filesystem::exists(path)) {
+    if(filesystem::exists(input_data.code_path)) {
         // Read the source code into a string
-        ifstream src(path);
+        ifstream src(input_data.code_path);
         stringstream buffer;
         buffer << src.rdbuf();
         source_code = buffer.str();
         src.close();
     }
     else {
+        // This is cheating!!!!
         cout << "Your file path was invalid." << endl;
         return;
     }
 
     // Assemble the data in a format the interactor can use, agnostic of any UI details
     submission_request data;
-    data.assignment_name = assignment_name;
+    data.assignment_name = input_data.assignment_name;
     data.program = source_code;
-    data.student_name = student_name;
+    data.student_name = input_data.username;
     data.submission_time = boost::posix_time::second_clock::local_time();
 
     // Give the data to the interactor (use case)
