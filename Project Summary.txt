@@ -34,5 +34,5 @@ code and pushed updates from a single laptop/account.
 
 
 Signatures (Use git blame to verify signatures, hahahah):
--- Brandon Bauer: This was a satisfying one!
+-- Brandon Bauer: This was a satisfying one (project)!
 -- Tyler Hoover: Now this is clean architecture.
