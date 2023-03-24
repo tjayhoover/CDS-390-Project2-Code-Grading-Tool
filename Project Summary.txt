@@ -1,0 +1,36 @@
+
+
+Brandon Bauer Tasks:
+-- entities
+-- boost time 
+-- authentication, adatper, server change,etc
+-- overall folder architecture (input and changes from Tyler from time to time)
+-- database, adapter,etc
+-- ReadMe
+-- interfaces
+-- Personal tests not integrated with gtest
+
+Tyler Hoover Tasks:
+-- use cases, cotrollers, interactors
+-- structs for usecase communication
+-- view, preseter, UI
+-- pythongrader, adpater, interfacces etc
+-- build tree
+-- Gtest suite implementation
+
+Reused :
+-- partially entities (they were modified to a reasonable extent)
+
+
+Project works in its entirety, be sure to run the authentication server under
+plugins. There was an error with a lexic_cast from the boost library but it
+appears we have fixed it (we are slightly unsure of the source except it being
+related to ptimes coverting to and from strings). There is an error that throws
+explainging the quick fix if it does come up (one for authentication as well).
+Be sure to have boost installed (boost-libs should be a dependency, if isn't
+then it also needs to be installed). Occasionally we used each others laptop to
+code and pushed updates from a singal laptop/account.
+
+
+Signatures (Use git blame to verify signatures, hahahah):
+-- Brandon Bauer: This was a satisfying one!

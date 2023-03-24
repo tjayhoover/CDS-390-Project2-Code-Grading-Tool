@@ -23,7 +23,8 @@ future (including build tree!)
 ------------------------------IMPORTANT-----------------------------------------
 
 This now requires Boost to be installed and the authentication server to be 
-running (located under plugins/authentication_server).
+running (located under plugins/authentication_server). Filesystem from C++ 17 is
+used, therefore C++ 17 or greater is required.
 
 To get the authentication server running perform the following:
     --Open a terminal and create a virtual environment:
