@@ -6,36 +6,33 @@
 #include <sstream>
 
 using namespace std;
-
-pythonGrader::pythonGrader() {
-
-    // Initialize working directory
-    if(!filesystem::exists("./python_temp")) {
-        filesystem::create_directory("./python_temp");
-    }
-
-    // Initialize required files
-    ofstream ofs{"./python_temp/output.txt"};
-    ofstream ifs{"./python_temp/input.txt"};
-    ofstream sfs{"./python_temp/source_code.py"};
-}
+namespace fs = std::filesystem;
 
 bool pythonGrader::grade_code(std::string code, std::string input, std::string desired_output) {
+        string curr_dir = fs::current_path();
+    string temp_dir = fs::temp_directory_path();
+    
+    fs::current_path(temp_dir);
+
+    // Initialize required files
+    ofstream ofs{"output.txt"};
+    ofstream ifs{"input.txt"};
+    ofstream sfs{"source_code.py"};
 
     // Write text to files
-    ofstream src("./python_temp/source_code.py");
+    ofstream src("source_code.py");
     src << code;
     src.close();
 
-    ofstream in("./python_temp/input.txt");
+    ofstream in("input.txt");
     in << input;
     in.close();
 
     // Use a system command to run the python code
-    int s = system("python3 ./python_temp/source_code.py < ./python_temp/input.txt > ./python_temp/output.txt");
+    int s = system("python3 source_code.py < input.txt > output.txt");
 
     // Read the program output back into a string
-    ifstream out("./python_temp/output.txt");
+    ifstream out("output.txt");
     stringstream buffer;
     buffer << out.rdbuf();
     string actual_output = buffer.str();
@@ -43,5 +40,6 @@ bool pythonGrader::grade_code(std::string code, std::string input, std::string d
     // Remove newline character that was added by the file write operation
     if(actual_output.back() == '\n') actual_output.pop_back();
 
+    fs::current_path(curr_dir);
     return (actual_output == desired_output);
 }
