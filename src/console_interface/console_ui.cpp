@@ -62,7 +62,7 @@ void ConsoleUserInterface::run() {
 
                 // View Grade Report option
                 if(response == 'a') {
-                    cout << "You chose to view the grade report." << endl;
+                    report_controller.get_instructor_report();
                 }
 
                 // Upload Assignment option

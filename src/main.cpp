@@ -79,9 +79,10 @@ int main(int, char**) {
     // the error to the console.
     try {
         db = make_unique<DB_adapter>();
-    } catch(exception e) {
-        std::cout << e.what() << std::endl;
-        std::cout << "If you do not care about your data, deleting the " <<
+    } catch(const exception& ex) {
+        cerr << "Database creation failed. Error message:" << endl;
+        cerr << ex.what() << endl;
+        cerr << "\nIf you do not care about your data, deleting the " <<
                     "_database directory under build/src should fix the issue." << endl;
         return 1;
     }
