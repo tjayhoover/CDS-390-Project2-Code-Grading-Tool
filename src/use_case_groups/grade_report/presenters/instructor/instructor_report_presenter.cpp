@@ -21,8 +21,9 @@ void InstructorReportPresenter::presentResult(instructor_report_response data) {
                     + "Cases Passed: " + std::to_string(data.cases_passed[i]) + "/" + std::to_string(data.total_cases) + "\n"
                     + "Grade: " + grade_percentage_str + "%\n");
         if(!data.on_time[i]) {
-            vm.output += "This submission was " + data.durations_late[i] + " hours late.\n\n";
+            vm.output += "This submission was " + data.durations_late[i] + " hours late.\n";
         }
+        vm.output += "\n";
     }
 
     if(data.student_names.size() == 0) {
