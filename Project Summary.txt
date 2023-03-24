@@ -11,11 +11,12 @@ Brandon Bauer Tasks:
 -- Personal tests not integrated with gtest
 
 Tyler Hoover Tasks:
--- use cases, cotrollers, interactors
--- structs for usecase communication
--- view, preseter, UI
--- pythongrader, adpater, interfacces etc
--- build tree
+-- use cases, controllers, interactors
+-- request/response models for use cases
+-- request/response models for UI to controller commmunication
+-- views, presenters, UI
+-- pythongrader, adpater, interfaces etc
+-- CMake build tree
 -- Gtest suite implementation
 
 Reused :
@@ -29,8 +30,9 @@ related to ptimes coverting to and from strings). There is an error that throws
 explainging the quick fix if it does come up (one for authentication as well).
 Be sure to have boost installed (boost-libs should be a dependency, if isn't
 then it also needs to be installed). Occasionally we used each others laptop to
-code and pushed updates from a singal laptop/account.
+code and pushed updates from a single laptop/account.
 
 
 Signatures (Use git blame to verify signatures, hahahah):
 -- Brandon Bauer: This was a satisfying one!
+-- Tyler Hoover: Now this is clean architecture.
