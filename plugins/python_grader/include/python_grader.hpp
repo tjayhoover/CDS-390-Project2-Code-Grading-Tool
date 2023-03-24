@@ -7,7 +7,7 @@ class pythonGrader {
 
 public:
     // Constructor
-    pythonGrader();
+    pythonGrader() = default;
 
     // Code grading function
     bool grade_code(std::string code, std::string input, std::string output);

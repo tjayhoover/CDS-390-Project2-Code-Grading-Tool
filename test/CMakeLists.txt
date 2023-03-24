@@ -6,10 +6,11 @@ set(CMAKE_CXX_STANDARD 17)
 enable_testing()
 
 add_executable(${PROJECT_NAME}
- user_test.cpp
-  grader_tests.cpp
-   other_tests.cpp
-   ../src/entities/user/user.cpp
+    user_test.cpp
+    grader_tests.cpp
+    other_tests.cpp
+    authentication_test.cpp
+    ../src/entities/user/user.cpp
    )
 
 find_package(GTest CONFIG REQUIRED)
