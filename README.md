@@ -27,7 +27,7 @@ future (including build tree!)
 -- New database to faciliate growth!
 -- New grader to improve grading quality and reduce formating errors!
 
-------------------------------IMPORTANT-----------------------------------------
+## Important
 
 This now requires Boost to be installed and the authentication server to be 
 running (located under plugins/authentication_server). Filesystem from C++ 17 is
