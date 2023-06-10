@@ -1,4 +1,11 @@
-# 菾 BeetCode 菾
+# BeetCode V2
+
+This is Project 2 from CDS-390 - Software Architecture.
+
+This was a team project with [Brandon Bauer](https://github.com/btb002).
+
+# Description
+
 A code-grading tool for a Software Architecture class. Students can upload and
 grade assignments, instructors can create assignments and view submissions,
 and an administrator can create and remove other users. This platform currently
